@@ -42,7 +42,17 @@ Created on Thu Nov 29 13:54:59 2018
 def hello_world_3args(a,b,c):
     print ("{}{}{}".format(a,b,c))
     
-
+#a1 = "hello "
+#b1 = "world "
+#c1 = "it's "
+#a2 = "love "
+#b2 = "coding"
+#c2 = "Monday "
+#a3 = "I think I "
+#c3 = "again!"
+#hello_world_3args(a1,b1,c3)
+#hello_world_3args(a3,a2,b2)
+#hello_world_3args(c1,c2,c3)
 
 #print(range(10))
 #print(range(1,10))
@@ -64,8 +74,13 @@ def tempConverter(celsius):
     kelvin = celsius + 273.15
     
     print("That's {} degrees in fahrenheit and {} degrees in kelvin.".format(fahrenheit, kelvin))
-    
 
+
+
+
+#celsius = int(input("What's the temperature in your city today?"))
+#    
+#tempConverter(celsius)
 
 #####the below does not work!!!!!!!!!!
 #celsius = int(input("What's the temperature in your city today?"))
@@ -137,6 +152,7 @@ def convertDistance(miles):
     return ("miles:" + str(miles), "kilometeres" + str(kilometers))
 
 
+#convertDistance(10)
 
 
 #def convertDistance():
