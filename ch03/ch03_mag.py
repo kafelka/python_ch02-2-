@@ -39,21 +39,11 @@ Created on Thu Nov 29 13:54:59 2018
 #    
 #hi_maggie()
 
-#def hello_world_3args(a,b,c):
-#    print ("{}{}{}".format(a,b,c))
-#    
-#a1 = "hello "
-#b1 = "world "
-#c1 = "it's "
-#a2 = "love "
-#b2 = "coding"
-#c2 = "Monday "
-#a3 = "I think I "
-#c3 = "again!"
-#hello_world_3args(a1,b1,c3)
-#hello_world_3args(a3,a2,b2)
-#hello_world_3args(c1,c2,c3)
-#
+def hello_world_3args(a,b,c):
+    print ("{}{}{}".format(a,b,c))
+    
+
+
 #print(range(10))
 #print(range(1,10))
 #print(range(1,10,2))
@@ -68,16 +58,14 @@ Created on Thu Nov 29 13:54:59 2018
 ##add_two_numbers()
 #add_two_numbers(a1,b1)
 
-#def tempConverter(celsius):
-#    
-#    fahrenheit = celsius * 9.0 /5.0 + 32
-#    kelvin = celsius + 273.15
-#    
-#    print("That's {} degrees in fahrenheit and {} degrees in kelvin.".format(fahrenheit, kelvin))
-#    
-#celsius = int(input("What's the temperature in your city today?"))
-#    
-#tempConverter(celsius)
+def tempConverter(celsius):
+    
+    fahrenheit = celsius * 9.0 /5.0 + 32
+    kelvin = celsius + 273.15
+    
+    print("That's {} degrees in fahrenheit and {} degrees in kelvin.".format(fahrenheit, kelvin))
+    
+
 
 #####the below does not work!!!!!!!!!!
 #celsius = int(input("What's the temperature in your city today?"))
@@ -140,15 +128,15 @@ Created on Thu Nov 29 13:54:59 2018
 #mainResult = convert_temp_kelvin_to_fahr(celsius2)
 
 
-#def convertDistance(miles):
-#    kilometers = (miles * 1.609)
-#    print("Converting distance in miles to kilometers.")
-#    print("Distance in miles:", miles)
-#    print("Distance in kilometers:", kilometers)
-#    
-#    return ("miles:" + str(miles), "kilometeres" + str(kilometers))
-#
-#convertDistance(10)
+def convertDistance(miles):
+    kilometers = (miles * 1.609)
+    print("Converting distance in miles to kilometers.")
+    print("Distance in miles:", miles)
+    print("Distance in kilometers:", kilometers)
+    
+    return ("miles:" + str(miles), "kilometeres" + str(kilometers))
+
+
 
 
 #def convertDistance():
@@ -159,16 +147,31 @@ Created on Thu Nov 29 13:54:59 2018
 #    return (miles, kilometers)
 #
 #convertDistance()
+#
+#def convertDistance(miles):
+#    kilometers = (miles * 1.61)
+##    print("The distance you run is {} in miles and {} in kilometers.".format(miles, kilometers))
+#    return ("The distance in miles is: " + str(miles) + " and the distance in kilometers is: " + str(kilometers))
+#
+#convertDistance(1)
+#
+#London_Bristol = convertDistance(118)
+#print(London_Bristol)
+#London_Cardiff = convertDistance(150.6)
+#London_Brighton = convertDistance(67)
+#London_Birmingham = convertDistance(126)
 
-def convertDistance(miles):
-    kilometers = (miles * 1.61)
-#    print("The distance you run is {} in miles and {} in kilometers.".format(miles, kilometers))
-    return ("The distance in miles is: " + str(miles) + " and the distance in kilometers is: " + str(kilometers))
+##importing
 
-convertDistance(1)
+#import math
+##print(pi)
+#print(math.pi)
 
-London_Bristol = convertDistance(118)
-print(London_Bristol)
-London_Cardiff = convertDistance(150.6)
-London_Brighton = convertDistance(67)
-London_Birmingham = convertDistance(126)
+##*******different way of importing
+#from math import *
+#print(pi)
+#
+#from math import pi
+
+
+#import ch03_filename
