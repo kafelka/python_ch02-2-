@@ -151,16 +151,24 @@ Created on Thu Nov 29 13:54:59 2018
 #convertDistance(10)
 
 
-def convertDistance():
-    miles = int(input("How many miles did you run last weekend?"))
-    kilometers = (miles * 1.61)
-    print("The distance you run is {} in miles and {} in kilometers.".format(miles, kilometers))
-    
-    return (miles, kilometers)
+#def convertDistance():
+#    miles = int(input("How many miles did you run last weekend?"))
+#    kilometers = (miles * 1.61)
+#    print("The distance you run is {} in miles and {} in kilometers.".format(miles, kilometers))
+#    
+#    return (miles, kilometers)
+#
+#convertDistance()
 
-convertDistance()
+def convertDistance(miles):
+    kilometers = (miles * 1.61)
+#    print("The distance you run is {} in miles and {} in kilometers.".format(miles, kilometers))
+    return ("The distance in miles is: " + str(miles) + " and the distance in kilometers is: " + str(kilometers))
+
+convertDistance(1)
 
 London_Bristol = convertDistance(118)
+print(London_Bristol)
 London_Cardiff = convertDistance(150.6)
 London_Brighton = convertDistance(67)
 London_Birmingham = convertDistance(126)
