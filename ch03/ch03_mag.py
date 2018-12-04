@@ -39,8 +39,9 @@ Created on Thu Nov 29 13:54:59 2018
 #    
 #hi_maggie()
 
-def hello_world_3args(a,b,c):
-    print ("{}{}{}".format(a,b,c))
+######################################
+#def hello_world_3args(a,b,c):
+#    print ("{}{}{}".format(a,b,c))
     
 #a1 = "hello "
 #b1 = "world "
@@ -54,6 +55,8 @@ def hello_world_3args(a,b,c):
 #hello_world_3args(a3,a2,b2)
 #hello_world_3args(c1,c2,c3)
 
+#############################################
+    #z dupy:
 #print(range(10))
 #print(range(1,10))
 #print(range(1,10,2))
@@ -67,23 +70,23 @@ def hello_world_3args(a,b,c):
 #     
 ##add_two_numbers()
 #add_two_numbers(a1,b1)
-
-def tempConverter(celsius):
     
-    fahrenheit = celsius * 9.0 /5.0 + 32
-    kelvin = celsius + 273.15
-    
-    print("That's {} degrees in fahrenheit and {} degrees in kelvin.".format(fahrenheit, kelvin))
-
-
-
-
-#celsius = int(input("What's the temperature in your city today?"))
+##########################################################
+#
+#def tempConverter(celsius):
 #    
-#tempConverter(celsius)
+#    fahrenheit = celsius * 9.0 /5.0 + 32
+#    kelvin = celsius + 273.15
+#    
+#    print("That's {} degrees in fahrenheit and {} degrees in kelvin.".format(fahrenheit, kelvin))
+#    
+#userInput = int(input("What's the temperature in your city today?"))
+#    
+#tempConverter(userInput)
 
-#####the below does not work!!!!!!!!!!
-#celsius = int(input("What's the temperature in your city today?"))
+
+#with return#######################
+#userInput = int(input("What's the temperature in your city today?"))
 #
 #def tempConverter2(celsius):
 #    
@@ -92,21 +95,23 @@ def tempConverter(celsius):
 #    
 #    return "That's {} degrees in fahrenheit and {} degrees in kelvin.".format(fahrenheit, kelvin)
 #    
-#tempConverter2(celsius)
+##print(tempConverter2(userInput))
+##result = tempConverter2(userInput)
+##print(result)
 
-
+#################################################
 
 #def tempConv(celsius):
 #    fahrenheit = celsius * 9.0 /5.0 + 32
 #    kelvin = celsius + 273.15
 #    return (fahrenheit, kelvin)
 #
-#celsius = 10
+#userInput = 10
 #
-#fahrenheit, kelvin = tempConv(celsius)
-#print(fahrenheit, kelvin)
+#outputFahr, outputKel = tempConv(userInput)
+#print(outputFahr, outputKel)
 
-
+##################################################
 #def convTemp():
 #    celsius = int(input("What's the temperature in your city today?"))
 #    fahrenheit = celsius * 9.0 /5.0 + 32
@@ -118,43 +123,53 @@ def tempConverter(celsius):
 ##convTemp()
 #kelvin, fahrenheit = convTemp()
 
-
+########################################
+    
 #def convert_temp_kelvin(celsius):
 #    kelvin = celsius + 273.15
 #    
 #    return kelvin
 #
 #def convert_temp_fahr(celsius):
-#    fahr = (celsius + 9.0) / 5.0 = 32
+#    fahr = (celsius * 9.0) / 5.0 + 32
 #    
 #    return fahr
 #
-#def convert_temp_kelvin_to_fahr(celsius):
-#    kelvin1 = convert_temp_kelvin(celsius)
-#    fahr = ((kelvin1 * 9) /5) - 459.67
-#            
-#    print("Converting temp in kelvin to fahr.")
-#    print("Temp in kelvin:", kelvin1)
-#    print("Temp in fahr:", fahr)
+#def convert_kelvin_to_fahrenheit(kelvin):
+#    fahrenheit = (kelvin - 273.15) * 9/5 + 32
 #    
-#    mainResult = kelvin1
+#    return fahrenheit
+#
+#
+#def convert_temp_kelvin_to_fahr(celsius):
+#    kelvin = convert_temp_kelvin(celsius)
+##    fahr = convert_temp_fahr(celsius)
+#    fahr = convert_kelvin_to_fahrenheit(kelvin)
+#            
+#    print("Converting temp in kelvin to fahrenheit.")
+#    print("Temp in kelvin:", kelvin)
+#    print("Temp in fahrenheit:", fahr)
+#    
+#    mainResult = kelvin
 #    return mainResult
 #
-#mainResult = convert_temp_kelvin_to_fahr(celsius2)
+#userInput = int(input("What's the temperature in your city today?"))
+#mainResult = convert_temp_kelvin_to_fahr(userInput)
 
+########################################
 
-def convertDistance(miles):
-    kilometers = (miles * 1.609)
-    print("Converting distance in miles to kilometers.")
-    print("Distance in miles:", miles)
-    print("Distance in kilometers:", kilometers)
-    
-    return ("miles:" + str(miles), "kilometeres" + str(kilometers))
-
-
+#def convertDistance(miles):
+#    kilometers = int(miles * 1.609)
+#    print("Converting distance in miles to kilometers.")
+#    print("Distance in miles:", miles)
+#    print("Distance in kilometers:", kilometers)
+#    
+#    return ("miles:" + str(miles), "kilometeres" + str(kilometers))
+#
 #convertDistance(10)
 
-
+########################################
+    
 #def convertDistance():
 #    miles = int(input("How many miles did you run last weekend?"))
 #    kilometers = (miles * 1.61)
@@ -163,19 +178,20 @@ def convertDistance(miles):
 #    return (miles, kilometers)
 #
 #convertDistance()
-#
-#def convertDistance(miles):
-#    kilometers = (miles * 1.61)
-##    print("The distance you run is {} in miles and {} in kilometers.".format(miles, kilometers))
+
+##########################################
+
+def convertDistance(miles):
+    kilometers = (miles * 1.61)
+    return ("The distance you run is {:.1f} in miles and {:.1f} in kilometers.".format(miles, kilometers))
 #    return ("The distance in miles is: " + str(miles) + " and the distance in kilometers is: " + str(kilometers))
-#
-#convertDistance(1)
-#
-#London_Bristol = convertDistance(118)
-#print(London_Bristol)
-#London_Cardiff = convertDistance(150.6)
-#London_Brighton = convertDistance(67)
-#London_Birmingham = convertDistance(126)
+
+
+London_Bristol = convertDistance(118)
+print(London_Bristol)
+London_Cardiff = convertDistance(150.6)
+London_Brighton = convertDistance(67)
+London_Birmingham = convertDistance(126)
 
 ##importing
 
