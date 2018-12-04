@@ -44,12 +44,39 @@ Created on Tue Dec  4 11:47:35 2018
 
 #############################################################
 
-number = input("Enter a number between 1 and 10: ")
-number = int(number) 
+#number = input("Enter a number between 1 and 10: ")
+#number = int(number) 
+#
+#if number > 10:
+#    print("Too high!")
+#elif number <= 0:
+#    print("Too low!")
+#else:
+#    print("Correct.")
+    
+##########################################################
+#if I change the order of elif statement, the result will be different
+#age = input("Enter your age: ")
+#age = int(age) 
+#
+#if age < 13:
+#    print("child")
+#elif age < 18:
+#    print("teen")
+#elif age < 95:
+#    print("adult")
+#else:
+#    print("Most probably you're dead. RIP.")
 
-if number > 10:
-    print("Too high!")
-elif number <= 0:
-    print("Too low!")
-else:
-    print("Correct.")
+################################################
+def checkTeen(age):
+    if age >=13 and age <=19:
+        print("You're a teen")
+    else:
+        print("You're not a teen.")
+    
+checkTeen(20)
+
+    
+    
+    
