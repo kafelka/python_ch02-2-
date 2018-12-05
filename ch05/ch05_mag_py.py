@@ -89,65 +89,65 @@ maggie.withdraw(200.0)
 #Cosmo.paws()
 #Cosmo.eat()
 
-class Robot():
-    def jump(self):
-        print("Jumping to warm up.")
+#class Robot():
+#    def jump(self):
+#        print("Jumping to warm up.")
+#        
+#class Climber(Robot):
+#    def climbUp(self):
+#        print("I'm climbing up the wall.")
+#        
+#class Overhang(Climber):
+#    def overhangUp(self):
+#        print("I'm climbing up an overhanging wall.")
+#        
+#class Climber2(Robot):
+#    def climbDown(self):
+#        print("I'm climbing down.")
+#        
+#class Helper(Robot):
+#    def help(self):
+#        print("I am carrying heavy stuff.")
         
-class Climber(Robot):
-    def climbUp(self):
-        print("I'm climbing up the wall.")
-        
-class Overhang(Climber):
-    def overhangUp(self):
-        print("I'm climbing up an overhanging wall.")
-        
-class Climber2(Robot):
-    def climbDown(self):
-        print("I'm climbing down.")
-        
-class Helper(Robot):
-    def help(self):
-        print("I am carrying heavy stuff.")
-        
-Morty = Helper()
-Morty.help()
-
-Max = Overhang()
-Max.overhangUp()
+#Morty = Helper()
+#Morty.help()
+#
+#Max = Overhang()
+#Max.overhangUp()
 
 #Chen's example
-class Animal():
-    def __init__(self, name, age=0):
-        self.name = name
-        self.age = age
-        
-    def eat(self):
-         print('yum')
-         
-class Dog(Animal):
-    def __init__(self, name, age=0,barkNumber=0):
-        self.barkNumber = barkNumber
-        
-    def bark(self):
-        print('Woof! '*self.barkNumber)
-        
-        
-class DogAgent(Dog):
-    def detect(self):
-        if self.barkNumber>=3:
-            print('strenger coming!!!')
-        
-class Cat(Animal):
-    def meow(self):
-        print('Meow')
-name = input('what is your pet\'s name:')        
-age = int(input('what is your pet\'s age: '))
-bark = int(input('how many times you heard it barked: '))
-
-dog007 = DogAgent(name, age, bark) #always inheritant ancester's
-dog007.bark()
-dog007.eat()
-dog007.detect()
+#class Animal():
+#    def __init__(self, name, age=0):
+#        self.name = name
+#        self.age = age
+#        
+#    def eat(self):
+#         print('yum')
+#         
+#class Dog(Animal):
+#    def __init__(self, name, age=0,barkNumber=0):
+#        self.barkNumber = barkNumber
+#        
+#    def bark(self):
+#        print('Woof! '*self.barkNumber)
+#        
+#        
+#class DogAgent(Dog):
+#    def detect(self):
+#        if self.barkNumber>=3:
+#            print('strenger coming!!!')
+#        
+#class Cat(Animal):
+#    def meow(self):
+#        print('Meow')
+#name = input('what is your pet\'s name:')        
+#age = int(input('what is your pet\'s age: '))
+#bark = int(input('how many times you heard it barked: '))
+#
+#dog007 = DogAgent(name, age, bark) #always inheritant ancester's
+#dog007.bark()
+#dog007.eat()
+#dog007.detect()
 
 #class Human():
 #    def __init__(self, name, age=0, stamina=0):
@@ -202,21 +202,39 @@ dog007.detect()
 #print("Hello {}!".format(name)).title()    
 
 
+#chen's version:
+class Animal():
+    def eat(self):
+        print("Yum")
+class Dog(Animal):
+    def bark(self):
+        print("Woof!")
+
+class Robot():
+    def move(self):
+        print("...move move move...")
+        
+class CleanRobot(Robot):
+    def clean(self):
+        print("I vacuum dust.")
+        
 class SuperRobot():
     def __init__(self):
+#        this class contains 3 objects
         self.o1 = Robot()
         self.o2 = Dog()
-        self.o3 = Cat()
-
+        self.o3 = CleanRobot()
+        
     def playGame(self):
         print("alphago game")
     def move(self):
-        return self.o1.move()
+        return self.o1.move() #using robot class method
     def bark(self):
-        return self.o2.bark()
+        return self.o2.bark() #using dog class method
     def clean(self):
-        return self.o3.clean()
+        return self.o3.clean() #using cleanrobot class method
     
 machineDog = SuperRobot()
 machineDog.move()
-machineDog.bark()        
+machineDog.bark()
+machineDog.clean()
