@@ -32,22 +32,22 @@ class Customer(object):
     
     
 jason = Customer("Jason Taylor", 1000.0, 25)
-print(jason.balance)
-print(jason.name)
-print(jason.age)
+#print(jason.balance)
+#print(jason.name)
+#print(jason.age)
 
 jason.withdraw(100.0)
-print("Checking balance after withdrawing cash:")
-print(jason.balance)
+#print("Checking balance after withdrawing cash:")
+#print(jason.balance)
 #jason.withdraw(1000.0)
 jason.deposit(800.0)
-print("Checking balance after deposit cash:")
-print(jason.balance)
+#print("Checking balance after deposit cash:")
+#print(jason.balance)
 
 maggie = Customer("Maggie K.", 2000.0)
-print(maggie.balance)
-print(maggie.name)
-print(maggie.age)
+#print(maggie.balance)
+#print(maggie.name)
+#print(maggie.age)
 maggie.withdraw(200.0)
 
 #cos mi tu nie dziala:
@@ -57,13 +57,13 @@ maggie.withdraw(200.0)
 name1 = "Clare B"
 balance1 = 3000.0
 
-print("Type:", type(jason))
+#print("Type:", type(jason))
 
-print(list(range(10)))
-
-print(list(range(1,10)))
-
-print(list(range(1,10,3)))
+#print(list(range(10)))
+#
+#print(list(range(1,10)))
+#
+#print(list(range(1,10,3)))
 
 
 class Animal():
@@ -80,12 +80,40 @@ class Cat(Animal):
     def paws(self):
         print("I've got 4 paws.")
         
-Snoopy = Dog()
-Snoopy.bark()
-Snoopy.eat()
+#Snoopy = Dog()
+#Snoopy.bark()
+#Snoopy.eat()
+#
+#Cosmo = Cat()
+#Cosmo.meow()
+#Cosmo.paws()
+#Cosmo.eat()
 
-Cosmo = Cat()
-Cosmo.meow()
-Cosmo.paws()
-Cosmo.eat()
+class Robot():
+    def jump(self):
+        print("Jumping to warm up.")
+        
+class Climber(Robot):
+    def climbUp(self):
+        print("I'm climbing up the wall.")
+        
+class Overhang(Climber):
+    def overhangUp(self):
+        print("I'm climbing up an overhanging wall.")
+        
+class Climber2(Robot):
+    def climbDown(self):
+        print("I'm climbing down.")
+        
+class Helper(Robot):
+    def help(self):
+        print("I am carrying heavy stuff.")
+        
+Morty = Helper()
+Morty.help()
 
+Max = Overhang()
+Max.overhangUp()
+
+
+        
