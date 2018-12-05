@@ -69,14 +69,15 @@ Created on Tue Dec  4 11:47:35 2018
 #    print("Most probably you're dead. RIP.")
 
 ################################################
-def checkTeen(age):
-    if age >=13 and age <=19:
-        print("You're a teen")
-    else:
-        print("You're not a teen.")
-    
-checkTeen(20)
+#def checkTeen(age):
+#    if age >=13 and age <=19:
+#        print("You're a teen")
+#    else:
+#        print("You're not a teen.")
+#    
+#checkTeen(20)
 
+##################################################
     
     
     
