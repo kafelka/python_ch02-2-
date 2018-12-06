@@ -202,39 +202,66 @@ maggie.withdraw(200.0)
 #print("Hello {}!".format(name)).title()    
 
 
-#chen's version:
+##chen's version:
+import sys
+
 class Animal():
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        
     def eat(self):
-        print("Yum")
+         print('yum')
+         
 class Dog(Animal):
     def bark(self):
-        print("Woof!")
-
+        print('Woof!')
+        
 class Robot():
     def move(self):
-        print("...move move move...")
-        
+            print('...move move move...')
 class CleanRobot(Robot):
     def clean(self):
-        print("I vacuum dust.")
+        print('I vacuum dust')
         
 class SuperRobot():
-    def __init__(self):
-#        this class contains 3 objects
+    
+    def __init__(self,name,age):
+        #This class contains 3 objects'
+        self.name = name
+        self.age = age
+        
         self.o1 = Robot()
-        self.o2 = Dog()
+        self.o2 = Dog(name,age)
         self.o3 = CleanRobot()
         
+        
+        
     def playGame(self):
-        print("alphago game")
+        print('alphago game')
+        
     def move(self):
         return self.o1.move() #using robot class method
+    
     def bark(self):
         return self.o2.bark() #using dog class method
-    def clean(self):
-        return self.o3.clean() #using cleanrobot class method
     
-machineDog = SuperRobot()
+    def eat(self):
+        return self.o2.eat() #using dog class method
+    
+    def clean(self):
+        return self.o3.clean() #using cleanrobot method
+    
+
+name = sys.argv[1] #input('pet\'s name: ')
+age = sys.argv[2] #int(input('pet\'s age: '))
+
+print(name)
+print(age)
+
+machineDog = SuperRobot(name, age)
 machineDog.move()
 machineDog.bark()
-machineDog.clean()
+machineDog.eat()
+
+
