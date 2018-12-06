@@ -115,11 +115,11 @@ if activity_type == "e":
     x = Entertainment(user_budget)
     x.entertainment_costam()
 if activity_type == "s":
-    Entertainment(user_budget)
+    Shopping(user_budget)
 if activity_type == "c":
-    Entertainment(user_budget)
+    Cultural(user_budget)
 if activity_type == "f":
-    Entertainment(user_budget)
+    Food(user_budget)
     
     
    
