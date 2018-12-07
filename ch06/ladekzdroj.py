@@ -110,7 +110,7 @@ is_london = ask_london()
 activity_type = ask_activity()
 user_budget = ask_budget()
 
-
+#google __main__ function in python 
 if activity_type == "e":
     x = Entertainment(user_budget)
     x.entertainment_costam()
