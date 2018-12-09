@@ -24,12 +24,13 @@ def ask_activity():
     * e for entertainment
     * s for shopping
     * c for cultural
-    * f for food """)
+    * f for food \n """)
         
         
     if activity.lower() == "e" or activity.lower() == "s" or activity.lower() == "c" or activity.lower() == "f":
     #if activity.lower() in ["e", "s", "c", "f"]
-        print(f"Good choice! You selected: {activity}.")
+#        print(f"Good choice! You selected: {activity}.")
+        print("Good choice! You selected: {}".format(activity))
         return activity.lower()
     else:
         print("Type first letter of the activity.")

@@ -4,7 +4,7 @@ Created on Sun Dec  2 17:16:18 2018
 
 @author: 612383300
 """
-#CodinfBat String 1 exercises
+#CodingBat String 1 exercises
 
 
 #Given an "out" string length 4, such as "<<>>", and a word, return a new
