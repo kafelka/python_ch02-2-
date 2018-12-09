@@ -6,6 +6,13 @@ Created on Sun Dec  2 17:16:18 2018
 """
 #CodinfBat String 1 exercises
 
+
+#Given an "out" string length 4, such as "<<>>", and a word, return a new
+# string where the word is in the middle of the out string, e.g. "<<word>>".
+#make_out_word('<<>>', 'Yay') → '<<Yay>>'
+#make_out_word('<<>>', 'WooHoo') → '<<WooHoo>>'
+#make_out_word('[[]]', 'word') → '[[word]]'
+
 def make_out_word(out, word):
 #    return "{}{}{}".format(out[0:2], word, out[2:4])
 #    return "{}{}{}".format(out[:2], word, out[2:])
@@ -15,6 +22,13 @@ def make_out_word(out, word):
 print(make_out_word("<<>>", "Wassuuuup"))
 
 print("#######################################################")
+      
+#Given a string of even length, return the first half. So the string "WooHoo"
+# yields "Woo".
+#first_half('WooHoo') → 'Woo'
+#first_half('HelloThere') → 'Hello'
+#first_half('abcdef') → 'abc'
+
 def first_half(str):
     x = str[0:len(str)//2]
     y = str[len(str)//2:]
@@ -23,28 +37,49 @@ def first_half(str):
 print(first_half("mojanoga"))
 
 print("#######################################################")
+
+#Given two strings, a and b, return the result of putting them together in 
+#the order abba, e.g. "Hi" and "Bye" returns "HiByeByeHi".
+#make_abba('Hi', 'Bye') → 'HiByeByeHi'
+#make_abba('Yo', 'Alice') → 'YoAliceAliceYo'
+#make_abba('What', 'Up') → 'WhatUpUpWhat'
+
 def make_abba(a, b):
   return "{}{}{}{}".format(a,b,b,a)
 
 print(make_abba("plup", "plip"))
 
 print("#######################################################")
+      
+#The web is built with HTML strings like "<i>Yay</i>" which draws Yay as italic
+# text. In this example, the "i" tag makes <i> and </i> which surround the 
+# word "Yay". Given tag and word strings, create the HTML string with tags
+# around the word, e.g. "<i>Yay</i>".
+#make_tags('i', 'Yay') → '<i>Yay</i>'
+#make_tags('i', 'Hello') → '<i>Hello</i>'
+#make_tags('cite', 'Yay') → '<cite>Yay</cite>'
+
 def make_tags(tag, word):
 #    return "{}{}{}".format("<" + tag + ">", word, "</" + tag + ">")
 #    return f"<{tag}>{word}</{tag}>"
     return "<{t}>{w}</{t}>".format(t=tag, w=word)
 
-
 print(make_tags("div", "division"))
-
 print("#######################################################")
+
+#Given a string, return a new string made of 3 copies of the last 2 chars of
+# the original string. The string length will be at least 2.
+#extra_end('Hello') → 'lololo'
+#extra_end('ab') → 'ababab'
+#extra_end('Hi') → 'HiHiHi'
+
 def extra_end(str):
 #    return ("{}".format(str[-2:]))*3
     return str[-2:]*3
 
 print (extra_end("Zero"))
-
 print("#######################################################")
+      
 #Given a string, return the string made of its first two chars, 
 #so the String "Hello" yields "He". If the string is shorter than length 2,
 # return whatever there is, so "X" yields "X", and the empty string "" yields
@@ -61,8 +96,8 @@ def first_two(str):
 #        return str
         
 print (first_two(""))
-
 print("#######################################################")
+      
 #Given a string, return a version without the first and last char, 
 #so "Hello" yields "ell". The string length will be at least 2.
 #without_end('Hello') → 'ell'
@@ -73,8 +108,8 @@ def without_end(str):
     return str[1:-1]
 
 print(without_end("ryba"))
-
 print("#######################################################")
+      
 #Given 2 strings, a and b, return a string of the form short+long+short,
 # with the shorter string on the outside and the longer string on the inside.
 # The strings will not be the same length, but they may be empty (length 0).
@@ -89,8 +124,8 @@ def combo_string(a, b):
         return f"{a}{b}{a}"
 
 print(combo_string("kartofel", "trefl"))
-
 print("#######################################################")
+      
 #Given 2 strings, return their concatenation, except omit the first char
 # of each. The strings will be at least length 1.
 #non_start('Hello', 'There') → 'ellohere'
@@ -100,8 +135,8 @@ def non_start(a, b):
     return a[1:] + b[1:]
 
 print(non_start("Good", "evening"))
-      
 print("#######################################################")
+      
 #Given a string, return a "rotated left 2" version where the first 2 chars
 # are moved to the end. The string length will be at least 2.
 #left2('Hello') → 'lloHe'
