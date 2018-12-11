@@ -51,16 +51,16 @@ def passwordCheck(truePasscode):
         time.sleep(1)
         return False
     
-#def threeAttempt(truePasscode):
-#    if passwordCheck(truePasscode) == True:
-#        return True
-#    print("Please try your 2nd attempt.")
-#    if passwordCheck(truePasscode) == True:
-#        return True
-#    print("Please try your last attempt.")
-#    if passwordCheck(truePasscode) == True:
-#        return True
-#    return False
+def threeAttempt(truePasscode):
+    if passwordCheck(truePasscode) == True:
+        return True
+    print("Please try your 2nd attempt.")
+    if passwordCheck(truePasscode) == True:
+        return True
+    print("Please try your last attempt.")
+    if passwordCheck(truePasscode) == True:
+        return True
+    return False
     
     
 def checkBalance(balance):
