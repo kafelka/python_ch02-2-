@@ -32,8 +32,8 @@ def askTransaction():
     options = input(
 """
 Please select an option:
-1 for credit balance request 
-2 for purchase data bundle. 
+    * 1 for credit balance request 
+    * 2 for purchase data bundle. 
 """)
     if options == "1" or options == "2":
         return options
@@ -60,8 +60,6 @@ def passwordCheck(truePasscode):
     else:
         return False
     
-
-    
     
 def checkBalance(balance):
     if balance > 0:
@@ -71,19 +69,19 @@ def checkBalance(balance):
     
     
 def purchaseTopUp(balance):
-  if checkBalance(balance) == False:
-      print("Your balance is not sufficient: £{}.".format(balance))
-      
+    if checkBalance(balance):
+        verifyPhone()                
+        topup = getTopUpAmount()   
+        if topup > balance:
+            print("Amount exceeds your current balance.")
+            return "Request rejected"
+        else:
+            print("You have topped up successfully. Thank you!")
+            print("Your new balance is: £{}".format(balance - topup))
+    else:
+         print("Your balance is not sufficient: {}.".format(balance))
+         return "Request rejected"
 
-  verifyPhone()                
-  topup = getTopUpAmount()      
-  if topup > balance:
-      print("Amount exceeds your current balance. Request rejected.")
-  else:
-      print("You have topped up successfully. Thank you!")
-      print("Your balance is not sufficient: £{}".format(balance - topup))
-      
-     
        
 def verifyPhone():
     phone = input("Please provide your phone number: ")
