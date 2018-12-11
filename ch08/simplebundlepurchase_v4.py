@@ -7,25 +7,26 @@ Created on Tue Dec 11 17:10:24 2018
 import time
 
 def DataBundlePurchase(truePasscode, balance):
-    if checkPasswordXTimes(3, truePasscode):        
+    if threeAttempt(truePasscode):       
         options = int(askTransaction())             
         if options == 1:
             print("Your balance is £{}.".format(balance))
         elif options == 2:
             purchaseTopUp(balance)                  
     else:
-        time.sleep(2)
-        print("Too many attempts. Come back in 15 minutes.")
+        time.sleep(1)
+        return "Too many attempts. Come back in 15 minutes."
+        
 
 
-def checkPasswordXTimes(attemptLeft, truePasscode):
-    if attemptLeft <= 0:
-        return False
-    elif passwordCheck(truePasscode):
-        return True
-    else:
-        return checkPasswordXTimes(attemptLeft - 1, truePasscode)
-
+#def checkPasswordXTimes(attemptLeft, truePasscode):
+#    if attemptLeft <= 0:
+#        return False
+#    elif passwordCheck(truePasscode):
+#        return True
+#    else:
+#        return checkPasswordXTimes(attemptLeft - 1, truePasscode)
+#
 
 def askTransaction():
     options = input(
@@ -40,27 +41,26 @@ Please select an option:
         return askTransaction()
 
 
+def threeAttempt(truePasscode):
+    if passwordCheck(truePasscode):
+        return True
+    print("Please try your 2nd attempt.")
+    if passwordCheck(truePasscode):
+        return True
+    print("Please try your last attempt.")
+    if passwordCheck(truePasscode):
+        return True
+    return False
+
 
 def passwordCheck(truePasscode):
     attempt = input("Please enter your PIN: ")
     if attempt == truePasscode:
-        time.sleep(1)
         return True
     else:
-        print("Wrong PIN. Try again.")
-        time.sleep(1)
         return False
     
-def threeAttempt(truePasscode):
-    if passwordCheck(truePasscode) == True:
-        return True
-    print("Please try your 2nd attempt.")
-    if passwordCheck(truePasscode) == True:
-        return True
-    print("Please try your last attempt.")
-    if passwordCheck(truePasscode) == True:
-        return True
-    return False
+
     
     
 def checkBalance(balance):
@@ -78,9 +78,11 @@ def purchaseTopUp(balance):
   verifyPhone()                
   topup = getTopUpAmount()      
   if topup > balance:
-      print("You have exceeded your balance.")
+      print("Amount exceeds your current balance. Request rejected.")
   else:
-      print("You have topped up successfully.")
+      print("You have topped up successfully. Thank you!")
+      print("Your balance is not sufficient: £{}".format(balance - topup))
+      
      
        
 def verifyPhone():
@@ -90,13 +92,13 @@ def verifyPhone():
     if phone == phone2:
         return True
     else:
-        print("Please try again")
+        print("Please try again.")
         return verifyPhone()
 
 
 
 def getTopUpAmount():
-    topup = int(input("Select a bundle: 10, 15, 20, 25 "))
+    topup = int(input("Select a bundle: 10, 15, 20, 25: "))
     
     if topup % 5 == 0:
         return topup
