@@ -8,7 +8,7 @@ def DataBundlePurchase(truePasscode, balance):
     if threeAttempt(truePasscode):       
         options = int(askTransaction())             
         if options == 1:
-            print("Your balance is £{}.".format(balance))
+            print("Your balance is {} GBP.".format(balance))
         elif options == 2:
             purchaseTopUp(balance)     
             return "happy now"             
@@ -67,22 +67,20 @@ def purchaseTopUp(balance):
         maxTopup = 25
         if topup > maxTopup:
             print("Your topup exceeds the maximum topup allowed. Try again.")
-            getTopUpAmount()
+            purchaseTopUp(balance)
         elif topup > balance:
-            print("Amount exceeds your current balance.")
-            print("Request rejected.")
+            print("Amount exceeds your current balance. Try again.")
+            purchaseTopUp(balance)
         else:
             print("You have topped up successfully. Thank you!")
             print("Your new balance is: £{}".format(round(balance - topup,3)))
     else:
          print("Your balance is not sufficient: {}.".format(balance))
          return "Request rejected"
-
-       
+     
 def verifyPhone():
     phone = input("Please provide your phone number: ")
     phone2 = input("Please confirm your phone number: ")
-    
     if phone == phone2:
         return True
     else:
@@ -97,6 +95,6 @@ def getTopUpAmount():
     if topup % 5 == 0 & topup <= 25:
         return topup
     else:
-        print("Wrong bundle")
+        print("Wrong bundle.")
         return getTopUpAmount()
         
