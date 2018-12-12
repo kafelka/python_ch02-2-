@@ -11,9 +11,9 @@ def DataBundlePurchase(truePasscode, balance):
             print("Your balance is {} GBP.".format(balance))
         elif options == 2:
             purchaseTopUp(balance)     
-            return "happy now"             
+            return "The test is happy now"             
     else:
-        return "Too many attempts. Come back in 15 minutes."
+        return "Too many attempts. Please come back in 15 minutes."
         
 
 def askTransaction():
@@ -66,10 +66,10 @@ def purchaseTopUp(balance):
         topup = getTopUpAmount()   
         maxTopup = 25
         if topup > maxTopup:
-            print("Your topup exceeds the maximum topup allowed. Try again.")
+            print("Your topup exceeds the maximum topup allowed. Please try again.")
             purchaseTopUp(balance)
         elif topup > balance:
-            print("Amount exceeds your current balance. Try again.")
+            print("The requested top-up exceeds your current balance. Please try again.")
             purchaseTopUp(balance)
         else:
             print("You have topped up successfully. Thank you!")
@@ -90,11 +90,11 @@ def verifyPhone():
 
 
 def getTopUpAmount():
-    topup = int(input("Select a bundle: 10, 15, 20 or 25: "))
+    topup = int(input("Select a bundle (£): 10, 15, 20 or 25: "))
     
     if topup % 5 == 0 & topup <= 25:
         return topup
     else:
-        print("Wrong bundle.")
+        print("Sorry, please select the correct bundle.")
         return getTopUpAmount()
         
