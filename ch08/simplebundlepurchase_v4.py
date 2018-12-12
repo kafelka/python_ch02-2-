@@ -4,36 +4,24 @@ Created on Tue Dec 11 17:10:24 2018
 
 @author: nahas
 """
-import time
-
 def DataBundlePurchase(truePasscode, balance):
     if threeAttempt(truePasscode):       
         options = int(askTransaction())             
         if options == 1:
             print("Your balance is £{}.".format(balance))
         elif options == 2:
-            purchaseTopUp(balance)                  
+            purchaseTopUp(balance)     
+            return "happy now"             
     else:
-        time.sleep(1)
         return "Too many attempts. Come back in 15 minutes."
         
-
-
-#def checkPasswordXTimes(attemptLeft, truePasscode):
-#    if attemptLeft <= 0:
-#        return False
-#    elif passwordCheck(truePasscode):
-#        return True
-#    else:
-#        return checkPasswordXTimes(attemptLeft - 1, truePasscode)
-#
 
 def askTransaction():
     options = input(
 """
 Please select an option:
     * 1 for credit balance request 
-    * 2 for purchase data bundle. 
+    * 2 for purchase data bundle 
 """)
     if options == "1" or options == "2":
         return options
@@ -44,13 +32,16 @@ Please select an option:
 def threeAttempt(truePasscode):
     if passwordCheck(truePasscode):
         return True
-    print("Please try your 2nd attempt.")
+    else:
+        print("Please try your 2nd attempt.")
     if passwordCheck(truePasscode):
         return True
-    print("Please try your last attempt.")
+    else:
+        print("Please try your last attempt.")
     if passwordCheck(truePasscode):
         return True
-    return False
+    else:
+        return False
 
 
 def passwordCheck(truePasscode):
@@ -70,14 +61,19 @@ def checkBalance(balance):
     
 def purchaseTopUp(balance):
     if checkBalance(balance):
-        verifyPhone()                
+        verifyPhone() 
+        print("The top up must be a multiple of 5 pounds and be no greater than £25.")               
         topup = getTopUpAmount()   
-        if topup > balance:
+        maxTopup = 25
+        if topup > maxTopup:
+            print("Your topup exceeds the maximum topup allowed. Try again.")
+            getTopUpAmount()
+        elif topup > balance:
             print("Amount exceeds your current balance.")
-            return "Request rejected"
+            print("Request rejected.")
         else:
             print("You have topped up successfully. Thank you!")
-            print("Your new balance is: £{}".format(balance - topup))
+            print("Your new balance is: £{}".format(round(balance - topup,3)))
     else:
          print("Your balance is not sufficient: {}.".format(balance))
          return "Request rejected"
@@ -96,9 +92,9 @@ def verifyPhone():
 
 
 def getTopUpAmount():
-    topup = int(input("Select a bundle: 10, 15, 20, 25: "))
+    topup = int(input("Select a bundle: 10, 15, 20 or 25: "))
     
-    if topup % 5 == 0:
+    if topup % 5 == 0 & topup <= 25:
         return topup
     else:
         print("Wrong bundle")
