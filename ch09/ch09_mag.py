@@ -87,75 +87,74 @@ Created on Wed Dec 12 12:16:04 2018
 #print(z[3:10])
 #print(z[8:10])
 
+#
+#print("*****sorting******")
+#m = [7,11,3,9,2]
+#print("print m:", m)
+#n = sorted(m)
+#print("print m: ", m)
+#print("print n: ", n)
+#
+#m.sort()
+#print("print m after m.sort: ", m)
+#print("*******************")
+#
+#zz = ["ok", "cs", "yw", "zs", "hd"]
+#print("print original zz :", zz)
+#yy = sorted(zz)
+#print(yy)
+#print(zz)
+#zz.sort()
+#print("print zz after zz.sort(): ", zz)
+#print(zz.sort())
+#
+#print("*******************")
+#r = [7,11,3,9,2]
+#print("print original r: ", r)
+#print(sorted(r))
+#
+#sorted(r,reverse = True) #reversing changes
+#print(r)
+#
+#rr = [7,11,3,9,2]
+#print("print original rr: ", rr)
+#rr.sort()
+#print("print rr after rr.sort: ", rr)
+#
+#rr.sort(reverse = True)
+#print("print reversed rr: ", rr)
+#print("\n")
+#
+#print("REVERSE generic sorted() function")
+#aaa = ["ab", "cs", "yw", "zs", "hd"]
+#aa2 = sorted(aaa, reverse = True)
+#print("after sorted(aaa) st is =:", aaa)
+#print("aa2 = sorted(aaa) is =:", aa2)
+#
+#print("object method .sort() , the same in memory")
+#print("original aaa: ", aaa)
+#aaa.sort(reverse = True)
+#bbb = aaa.sort()
+#print("now aaa is =:", aaa)
+#print("now aa2 is =:", aa2)
+#
+#print("\n")
+#print("generic sorted() function")
+#st = ["ab", "cs", "yw", "zs", "hd"]
+#st2 = sorted(st)
+#print("after sorted(st) st is =:", st)
+#print("st2 = sorted(st) is =:", st2)
+#
+#print("object method .sort() , the same in memory")
+#print("original st: ", st)
+#st.sort()
+#bb = st.sort()
+#print("now st is =:", st)
+#print("now st2 is =:", st2)
 
-print("*****sorting******")
-m = [7,11,3,9,2]
-print("print m:", m)
-n = sorted(m)
-print("print m: ", m)
-print("print n: ", n)
 
-m.sort()
-print("print m after m.sort: ", m)
-print("*******************")
-
-zz = ["ok", "cs", "yw", "zs", "hd"]
-print("print original zz :", zz)
-yy = sorted(zz)
-print(yy)
-print(zz)
-zz.sort()
-print("print zz after zz.sort(): ", zz)
-print(zz.sort())
-
-print("*******************")
-r = [7,11,3,9,2]
-print("print original r: ", r)
-print(sorted(r))
-
-sorted(r,reverse = True) #reversing changes
-print(r)
-
-rr = [7,11,3,9,2]
-print("print original rr: ", rr)
-rr.sort()
-print("print rr after rr.sort: ", rr)
-
-rr.sort(reverse = True)
-print("print reversed rr: ", rr)
-print("\n")
-
-print("REVERSE generic sorted() function")
-aaa = ["ab", "cs", "yw", "zs", "hd"]
-aa2 = sorted(aaa, reverse = True)
-print("after sorted(aaa) st is =:", aaa)
-print("aa2 = sorted(aaa) is =:", aa2)
-
-print("object method .sort() , the same in memory")
-print("original aaa: ", aaa)
-aaa.sort(reverse = True)
-bbb = aaa.sort()
-print("now aaa is =:", aaa)
-print("now aa2 is =:", aa2)
-
-print("\n")
-print("generic sorted() function")
-st = ["ab", "cs", "yw", "zs", "hd"]
-st2 = sorted(st)
-print("after sorted(st) st is =:", st)
-print("st2 = sorted(st) is =:", st2)
-
-print("object method .sort() , the same in memory")
-print("original st: ", st)
-st.sort()
-bb = st.sort()
-print("now st is =:", st)
-print("now st2 is =:", st2)
-
-
-
-print("tuples*******************")
-
+print("****tuples-immutable=read from them but cannot change****")
+print("example 1")
 a = [0,1,2,3,4,5,6,7,8,9]
 print(a)
 del a[-1]
@@ -169,6 +168,8 @@ b = (0,1,2,3,4,5,6,7,8,9)
 #del b[-1]  tuple object does not support item deletion
 print(b)
 
+print("\n")
+print("example 2")
 a = [0,1,2,3,4,5,6,7,8,9]
 a[0] = 50
 print(a)
@@ -177,13 +178,27 @@ b = (0,1,2,3,4,5,6,7,8,9)
 #b[0] = 50 tuple object does not support item assignment
 print(b)
 
+print("\n")
+print("example 3")
 a.append("z")
 print(a)
 
 #b.append("z") #tuple object has no attribute 'append'
 print(b)
 
-print("*******************")
+c = list(b)
+print(type(b))
+print(type(c))
+
+#dokonczyc pozniej
+#z = sorted(a, reverse = True)
+#if a == b:
+#    print(True)
+#else:
+#    print(False)
+
+print("\n")
+print("*******lambda******")
 x = ["the", "cat", "on"]
 y = [7,11,3,9,2]
 z = [2,3,7,8,11]
