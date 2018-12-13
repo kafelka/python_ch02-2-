@@ -10,18 +10,18 @@ print(my_fav_fruit[0])
 
 x = ["this", 55, "that", my_fav_fruit]
 print(x)
-#print(x[0])
-#print(x[1])
-#print(x[3])
-#print("****** result for x[-1][-2]:")
-#print(x[-1][-2])
-#print("result of [x[-2][-3]]:")
-#print(x[-2][-3])
-#print(x[3][0])
-#
-#print("result of x[-1][-2][-2][0]")
-#print(x[-1][-2][-2][0])
-##print(x[4])
+print(x[0])
+print(x[1])
+print(x[3])
+print("****** result for x[-1][-2]:")
+print(x[-1][-2])
+print("result of [x[-2][-3]]:")
+print(x[-2][-3])
+print(x[3][0])
+
+print("result of x[-1][-2][-2][0]")
+print(x[-1][-2][-2][0])
+#print(x[4])
 
 print("*******************")
 print("print x before removal: ", x)
@@ -32,7 +32,7 @@ print(x)
 
 x.append("again") #appending/extending the list ( as last element)
 print(x)
-
+y = x
 y = x.append("hello")
 print(y)
 print(type(y))
@@ -54,7 +54,7 @@ d = [1, 2, 3, 4, 5, 6]
 del d[2:]
 print(d)
 
-print("*******************")
+print("operations*******************")
 e = ["the", "cat", "sat"]
 f = ["on", "the", "mat"]
 g = e + f
@@ -65,9 +65,22 @@ print(h)
 print("*******************")
 print(set(e+f))
 
+print("set **********")
+print("print set(e): ", set(e))   #printing in curly brackets dictionary
+a = set(e)
+print("print a:", a)
+
+print("*********** slicing")
 k = ["this", "and", "that", "once", "again"]
 print(k)
 print(k[1:4])
+print(k[0:0])
+print(k[0:2])
+print(k[3:5])
+print(k[-1:-3])
+print(k[-3:-1])
+print(k[-3:])
+print(k[-5:-2])
 print(k)
 
 z = ["the", "cat", "sat", "on", "the", "mat"]
