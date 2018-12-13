@@ -153,42 +153,42 @@ Created on Wed Dec 12 12:16:04 2018
 #print("now st2 is =:", st2)
 
 
-print("****tuples-immutable=read from them but cannot change****")
-print("example 1")
-a = [0,1,2,3,4,5,6,7,8,9]
-print(a)
-del a[-1]
-print(a)
-del a[-3]
-print(a)
-del a[-3:]
-print(a)
-
-b = (0,1,2,3,4,5,6,7,8,9)
-#del b[-1]  tuple object does not support item deletion
-print(b)
-
-print("\n")
-print("example 2")
-a = [0,1,2,3,4,5,6,7,8,9]
-a[0] = 50
-print(a)
-
-b = (0,1,2,3,4,5,6,7,8,9)
-#b[0] = 50 tuple object does not support item assignment
-print(b)
-
-print("\n")
-print("example 3")
-a.append("z")
-print(a)
-
-#b.append("z") #tuple object has no attribute 'append'
-print(b)
-
-c = list(b)
-print(type(b))
-print(type(c))
+#print("****tuples-immutable=read from them but cannot change****")
+#print("example 1")
+#a = [0,1,2,3,4,5,6,7,8,9]
+#print(a)
+#del a[-1]
+#print(a)
+#del a[-3]
+#print(a)
+#del a[-3:]
+#print(a)
+#
+#b = (0,1,2,3,4,5,6,7,8,9)
+##del b[-1]  tuple object does not support item deletion
+#print(b)
+#
+#print("\n")
+#print("example 2")
+#a = [0,1,2,3,4,5,6,7,8,9]
+#a[0] = 50
+#print(a)
+#
+#b = (0,1,2,3,4,5,6,7,8,9)
+##b[0] = 50 tuple object does not support item assignment
+#print(b)
+#
+#print("\n")
+#print("example 3")
+#a.append("z")
+#print(a)
+#
+##b.append("z") #tuple object has no attribute 'append'
+#print(b)
+#
+#c = list(b)
+#print(type(b))
+#print(type(c))
 
 #dokonczyc pozniej
 #z = sorted(a, reverse = True)
@@ -199,20 +199,100 @@ print(type(c))
 
 print("\n")
 print("*******lambda******")
-x = ["the", "cat", "on"]
-y = [7,11,3,9,2]
-z = [2,3,7,8,11]
-x2 = [("a",3,z), ("c",1,y), ("b",5,x)]
-sorted(x2)
+
+a = [0,1,2,3,4,5,6,7,8,9]
+b = (0,1,2,3,4,5,6,7,8,9)
+myFavF = ["apple", "orange", "banana"]
+x = ["xa", "sb", "lf", "hw", "ed", "fy"]
+z = ["fg", "uj", "sx", "uj", "ww", "cf"]
+y = sorted(x)
+
+y[0] = "zz"
+x2 = [("a", 3 ,z), ("c", 1 ,y), ("b", 5, x)]
+
 print(x2)
+print("*****")
+print(sorted(x2, key=lambda s:s[2][-1][-2]))
+print("*****")
+#print("z is ", z)
+#print("y is ", y)
+#print("x is ", x)
 
-z[0]=22
-z[1]=5
+print("*****")
+print(sorted(x2, key=lambda s:s[1]))
+#[('c', 1, ['ed', 'fy', 'hw', 'lf', 'sb', 'xa']), 
+# ('a', 3, ['fg', 'uj', 'sx', 'uj', 'ww', 'cf']), 
+# ('b', 5, ['xa', 'sb', 'lf', 'hw', 'ed', 'fy'])]
+print("*****")
+print(sorted(x2, key=lambda s:s[2]))
+print("*****")
+#print(sorted(x2, key=lambda s:s[2][1]))
 
-x2 = [("a",3,z), ("c",1,y), ("b",5,x)]
+#a = [1,2,3,4]
+#b = [3,4,10,3]
+#c = [20,10,30,40]
+#
+#y2 = [("a", 3 ,c), ("c", 1 ,b), ("b", 5, a)]
+#
+#print(sorted(y2, key=lambda s:s[1]))
+#print("*****")
+#print(sorted(y2, key=lambda s:s[2]))
+#print("*****")
+#print(sorted(y2, key=lambda s:s[2][-1]))
 
-#sorted(x2, key=lambda s:s[2])
+print("******new example*******")
+
+a = [0,1,2,3,4,5,6,7,8,9]
+b = [0,1,2,3,4,5,6]
+c = [2,2,3,3,4,5,6,7,8,9]
+
+myFavF = ["apple", "orange", "banana"]
+x = ["lf", "sb", "hw", "hw", "aa", "ed", "fy"]
+z = ["uj", "fg", "uj", "ww", "sx", "cf"]
+
+y = sorted(x)
+y[0] = "zz"
+y[-2] = "sd"
+# ['zz', 'ed', 'fy', 'hw', 'hw', 'sd', 'sb']
+x2 = [(a, 3, "a", z), (c, 1, "c", y), (b, 5, "b", x)]
+
+print("x2 ")
+print(x2)
+print("***")
+print(sorted(x2, key=lambda s:s[0][-3]))
+print("*****")
+print(sorted(x2, key=lambda s:s[3][-3][-2]))
+print("*****")
+print(sorted(x2, key=lambda s:s[3][-3][-2])[0])
+
+print("Ellen's example")
+
+employees = [('Janine Saunders', 50000, 'UX Designer'),
+     ('Robert Webster', 90000, 'Senior Engineer'),
+     ('Jack Murning', 40000, 'Junior Web Developer'),
+     ('Jen Burns', 30000, 'Content Creator'), 
+     ('Hannah Beth', 40000, 'Communications Specialist')]
+    
+print (sorted(employees, key = lambda salary:salary[2]))
+
+
+
+
+
+#x = ["the", "cat", "on"]
+#y = [7,11,3,9,2]
+#z = [2,3,7,8,11]
+#x2 = [("a",3,z), ("c",1,y), ("b",5,x)]
+#sorted(x2)
 #print(x2)
-#print("*******************")
-#sorted(x2, key=lambda s:s[2][1])
-#print(x2)
+#
+#z[0]=22
+#z[1]=5
+#
+#x2 = [("a",3,z), ("c",1,y), ("b",5,x)]
+#
+##sorted(x2, key=lambda s:s[2])
+##print(x2)
+##print("*******************")
+##sorted(x2, key=lambda s:s[2][1])
+##print(x2)
