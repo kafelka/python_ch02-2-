@@ -21,8 +21,8 @@ def addToPhoneBook():
     age = int(input("How old are you? "))
     return {name: (last3DigitNo, luckNo, postCode, townCity, age)}
 
-#newEntry = addToPhoneBook()
-newEntry = {}
+newEntry = addToPhoneBook()
+#newEntry = {}
 phoneBook.update(newEntry)
 print("The phone book has been successfully update with the new record: ", newEntry)
 print(phoneBook)
