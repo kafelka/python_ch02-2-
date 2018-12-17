@@ -81,46 +81,47 @@ Created on Fri Dec 14 09:56:06 2018
 #labels.sort(key=lambda k:counts[k])
 #   
 #
-#abc = {} 
-#abc = {
-#       1: ("greg","january",7 ),
-#       2: ("anna", "october",3),
-#       3: ("mag", "november", 13)
-#       }
-#
-#print(list(abc.keys()))
-#print(list(abc.values()))
-#
-#
-#abc_keys = list(abc.keys())
-#abc_keys.sort(key=lambda k:abc[k][2])
-#print("second value keys:", abc_keys)
-#abc_keys.sort(key=lambda k:abc[k][1])
-#print("sort by first value keys:", abc_keys)
-#
-#abc_keys.sort(key=lambda k:abc[k][1][-1])
-#print("sort by [k][1][-1]:", abc_keys)
-#
-#print(sorted(abc.items(), key=lambda kv:kv[1]))
-#print(sorted(abc.items(), key=lambda kv:kv[1][2]))
-#
-#for i in abc.items():
-#    print (i)
-#
-#print(sorted(abc.items(), key=lambda kv:kv[0]))
-##counts = {"a": 3, "c":1, "b": 5}
-##sorted(counts.items(), key=lambda kv:kv[1])
-##print(counts)
-##sorted(counts.items(), key=lambda kv counts[k])
-#
-#print(sorted(abc, key=lambda k: abc[k]))
-#print(sorted(abc, key=lambda k: abc[k][2]))
-#
-##reverse order
-#abc_keys.sort(reverse=True, key = lambda k:abc[k][2])
-#
-#sorted(abc, key=lambda k:abc[k][2], reverse=True)
-#sorted(abc.items(), key=lambda kv: kv[1][2], reverse=True)
+abc = {} 
+abc = {
+       1: ("greg","january",7 ),
+       2: ("anna", "october",31),
+       3: ("mag", "november", 13)
+       }
+
+print(list(abc.keys()))
+print(list(abc.values()))
+
+
+abc_keys = list(abc.keys())
+abc_keys.sort(key=lambda k:abc[k][2])
+print("second value keys:", abc_keys)
+abc_keys.sort(key=lambda k:abc[k][1])
+print("sort by first value keys:", abc_keys)
+
+abc_keys.sort(key=lambda k:abc[k][1][-1])
+print("sort by [k][1][-1]:", abc_keys)
+
+print(sorted(abc.items(), key=lambda kv:kv[1]))
+print(sorted(abc.items(), key=lambda kv:kv[1][2]))
+print(sorted(abc, key=lambda k:abc[k][1]))
+
+for i in abc.items():
+    print (i)
+
+print(sorted(abc.items(), key=lambda kv:kv[0]))
+#counts = {"a": 3, "c":1, "b": 5}
+#sorted(counts.items(), key=lambda kv:kv[1])   
+#print(counts)
+#sorted(counts.items(), key=lambda kv counts[k])
+
+print(sorted(abc, key=lambda k: abc[k]))
+print(sorted(abc, key=lambda k: abc[k][2]))
+
+#reverse order
+abc_keys.sort(reverse=True, key = lambda k:abc[k][2])
+
+sorted(abc, key=lambda k:abc[k][2], reverse=True)
+sorted(abc.items(), key=lambda kv: kv[1][2], reverse=True)
 
 #price per gram in USD
 metals = {}
