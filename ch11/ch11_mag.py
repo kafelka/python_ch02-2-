@@ -25,3 +25,15 @@ print(someMaths(3))
 print(someMaths(4))
 print(someMaths(5))
 print(someMaths(6))
+
+mark = 1
+while mark > 0:
+    mark = int(input("What's your mark: "))
+    print("Your mark is", mark, end = ". ")
+    if mark >= 70:
+        print("First class!")
+    elif mark >= 40:
+        print("Pass!")
+    else:
+        print("Oh no, that's a fail...")
+        
