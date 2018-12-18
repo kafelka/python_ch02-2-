@@ -12,7 +12,6 @@ phoneBook = {}
 #             }
 
 x = (len(phoneBook)-1)
- 
 while (x) < 3:       
        name = input('What is your first name? ').title()
        last3DigitNo = input('What are the last three digit of your phone no.? ')
@@ -22,6 +21,7 @@ while (x) < 3:
        age = int(input("How old are you? "))
 
        phoneBook[name] = (last3DigitNo, luckNo, postCode, townCity, age)
+       
        print(phoneBook)
        x = (len(phoneBook)-1)
        print(x)  
@@ -35,11 +35,11 @@ def addToPhoneBook():
     age = int(input("How old are you? "))
     return {name: (last3DigitNo, luckNo, postCode, townCity, age)}
 
-newEntry = addToPhoneBook()
-newEntry = {}
-phoneBook.update(newEntry)
-print("The phone book has been successfully update with the new record: ", newEntry)
-print(phoneBook)
+#newEntry = addToPhoneBook()
+##newEntry = {}
+#phoneBook.update(newEntry)
+#print("The phone book has been successfully update with the new record: ", newEntry)
+#print(phoneBook)
 
 def sortByName():
     sortBy = sorted(phoneBook.items(), key=lambda kv:kv[0])
