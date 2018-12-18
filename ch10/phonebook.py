@@ -2,7 +2,7 @@
 """
 Created on Mon Dec 17 15:09:58 2018
 
-@author: nahas
+@author: mag
 """
 
 phoneBook = {"Joan": ("753", 13, "NW3 5GH", "London", 34),

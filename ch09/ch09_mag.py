@@ -2,7 +2,7 @@
 """
 Created on Wed Dec 12 12:16:04 2018
 
-@author: nahas
+@author: mag
 """
 #my_fav_fruit = ["apple", "raspberry", "grapefruit"]
 #print(my_fav_fruit)

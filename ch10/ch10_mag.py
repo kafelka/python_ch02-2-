@@ -2,7 +2,7 @@
 """
 Created on Fri Dec 14 09:56:06 2018
 
-@author: nahas
+@author: mag
 """
 
 #salary = {}
