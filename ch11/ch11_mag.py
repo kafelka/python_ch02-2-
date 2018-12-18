@@ -37,19 +37,22 @@ print(someMaths(6))
 #    else:
 #        print("Oh no, that's a fail...")
    
-#didYouPass = "Yes"
-#while didYouPass == "Yes":
-#    mark = int(input("What's your score? "))
-#    if mark >= 70:
-#        print("First class!")
-#        
-#    elif mark >= 40:
-#        print("Pass!")
-#        
-#    else:
-#        print("Oh no, that's a fail...")
+#didYouPass = 'Yes'
 #
-#    didYouPass = input("Did you pass? ")
+#while didYouPass == 'Yes':
+#
+#   mark = int(input('What is your score? '))
+#   
+#   if mark >= 70 and mark <=90:
+#       print('FIRST CLASS')
+#
+#   elif mark >= 40:
+#       print('PASS')
+#
+#   elif mark < 40:
+#       print('FAIL')
+#
+#   didYouPass = input('Did you pass? ')
 
 print("***********************") 
 i = 55
@@ -58,4 +61,13 @@ while i > 10:
     i = i * 0.8
     if i == 35.2:
         break
-#        
+
+print("***********************") 
+while True:
+    name = input("What's your name? ")
+    if name == "done":
+        break
+    print("Hello", name)
+    
+        
+    
