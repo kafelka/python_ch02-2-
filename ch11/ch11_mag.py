@@ -26,14 +26,36 @@ print(someMaths(4))
 print(someMaths(5))
 print(someMaths(6))
 
-mark = 1
-while mark > 0:
-    mark = int(input("What's your mark: "))
-    print("Your mark is", mark, end = ". ")
-    if mark >= 70:
-        print("First class!")
-    elif mark >= 40:
-        print("Pass!")
-    else:
-        print("Oh no, that's a fail...")
-        
+#mark = 1
+#while mark > 0:
+#    mark = int(input("What's your mark: "))
+#    print("Your mark is", mark, end = ". ")
+#    if mark >= 70:
+#        print("First class!")
+#    elif mark >= 40:
+#        print("Pass!")
+#    else:
+#        print("Oh no, that's a fail...")
+   
+#didYouPass = "Yes"
+#while didYouPass == "Yes":
+#    mark = int(input("What's your score? "))
+#    if mark >= 70:
+#        print("First class!")
+#        
+#    elif mark >= 40:
+#        print("Pass!")
+#        
+#    else:
+#        print("Oh no, that's a fail...")
+#
+#    didYouPass = input("Did you pass? ")
+
+print("***********************") 
+i = 55
+while i > 10:
+    print(i)
+    i = i * 0.8
+    if i == 35.2:
+        break
+#        
