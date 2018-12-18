@@ -4,14 +4,28 @@ Created on Mon Dec 17 15:09:58 2018
 
 @author: mag
 """
+phoneBook = {}
+#phoneBook = {"Joan": ("753", 13, "NW3 5GH", "London", 34),
+#             "Eddie": ("225", 7, "AB10 1EZ", "Aberdeen", 28),
+#             "Natalie": ("477", 5, "L1 0RD", "Liverpool", 26),
+#             "Veronica": ("850", 21, "M1 1FR", "Manchester", 30)
+#             }
 
-phoneBook = {"Joan": ("753", 13, "NW3 5GH", "London", 34),
-             "Eddie": ("225", 7, "AB10 1EZ", "Aberdeen", 28),
-             "Natalie": ("477", 5, "L1 0RD", "Liverpool", 26),
-             "Veronica": ("850", 21, "M1 1FR", "Manchester", 30)
-             }
+x = (len(phoneBook)-1)
+ 
+while (x) < 3:       
+       name = input('What is your first name? ').title()
+       last3DigitNo = input('What are the last three digit of your phone no.? ')
+       luckNo = int(input('What is your lucky no.? '))
+       postCode = input('What is your post code? ').upper()
+       townCity = input('Which city do you come from? ').title()
+       age = int(input("How old are you? "))
 
-
+       phoneBook[name] = (last3DigitNo, luckNo, postCode, townCity, age)
+       print(phoneBook)
+       x = (len(phoneBook)-1)
+       print(x)  
+    
 def addToPhoneBook():
     name = input('What is your first name? ').title()
     last3DigitNo = input('What are the last three digit of your phone no.? ')
@@ -22,7 +36,7 @@ def addToPhoneBook():
     return {name: (last3DigitNo, luckNo, postCode, townCity, age)}
 
 newEntry = addToPhoneBook()
-#newEntry = {}
+newEntry = {}
 phoneBook.update(newEntry)
 print("The phone book has been successfully update with the new record: ", newEntry)
 print(phoneBook)
