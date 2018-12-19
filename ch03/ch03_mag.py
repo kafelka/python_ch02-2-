@@ -24,8 +24,9 @@ Created on Thu Nov 29 13:54:59 2018
 #
 #def addition():
 #    add2_3 = 2+3
-#    print(add2_3)
-#    print(2+6)
+#    return add2_3
+#
+#print(addition())
 #    
 #hello_world()
 
@@ -56,7 +57,7 @@ Created on Thu Nov 29 13:54:59 2018
 #hello_world_3args(c1,c2,c3)
 
 #############################################
-    #z dupy:
+    
 #print(range(10))
 #print(range(1,10))
 #print(range(1,10,2))

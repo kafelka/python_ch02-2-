@@ -4,6 +4,7 @@ Spyder Editor
 
 This is a temporary script file.
 """
+print("Hello world!")
 
 A = 2 + 3
 B = 2.9 + 3.2
