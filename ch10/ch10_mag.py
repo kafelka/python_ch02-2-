@@ -32,6 +32,7 @@ Created on Fri Dec 14 09:56:06 2018
 #tel = {"sarika":156, "martina":380, "mag": 241}
 #print(tel)
 #
+#print(tel["sarika"])
 #tel["sarika"] = 1156
 #tel["martina"] = 3380
 #tel["mag"] = 1041
@@ -48,9 +49,11 @@ Created on Fri Dec 14 09:56:06 2018
 #print(valuesTel)
 #print(type(valuesTel))
 #
+#convert keys and values to list data type
 #print(list(tel.keys()))
 #print(list(tel.values()))
 #
+#in order to avoid errors, we can run a test:
 #k = "mag"
 #
 #if k in tel:
@@ -87,7 +90,7 @@ abc = {
        2: ("anna", "october",31),
        3: ("mag", "november", 13)
        }
-
+#converting keys and value to list data type:
 print(list(abc.keys()))
 print(list(abc.values()))
 
