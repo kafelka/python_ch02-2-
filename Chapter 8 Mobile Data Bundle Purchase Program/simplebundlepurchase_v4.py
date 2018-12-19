@@ -11,7 +11,7 @@ def DataBundlePurchase(truePasscode, balance):
             print("Your balance is {} GBP.".format(balance))
         elif options == 2:
             purchaseTopUp(balance)     
-            return "The test is happy now"             
+            return "The test has been run succesfully."             
     else:
         return "Too many attempts. Please come back in 15 minutes."
         
