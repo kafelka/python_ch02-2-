@@ -4,20 +4,19 @@ Created on Thu Nov 29 13:54:59 2018
 
 @author: maggie
 """
-#input from user
-
-print("What is your name?")
-name = input()
-
-name = input("What's your name? ")
-print("Hello {}!".format(name))
-
-
-name2 = name.capitalize()
-print("Hello {}!".format(name2))
-
-city = input("What's your city? ")
-print ("Hello {} from {}.".format(name2,city))
+##input from user
+#
+#print("What is your name?")
+#name = input()
+#
+#name = input("What's your name? ")
+#print("Hello {}!".format(name))
+#
+#name2 = name.capitalize()
+#print("Hello {}!".format(name2))
+#
+#city = input("What's your city? ")
+#print ("Hello {} from {}.".format(name2,city))
 
 #ex2 first function
 
@@ -29,8 +28,7 @@ def addition():
     add2_3 = 2+3
     return add2_3
 
-print(addition())
-hello_world()
+
 
 def hi_maggie():
     name = input("What's your name? ").capitalize()
@@ -39,8 +37,7 @@ def hi_maggie():
     random1 = input("Provide a random number: ")
     random2 = input("Provide another random number: ")
     print(int(random1) + int(random2))
-    
-hi_maggie()
+
 
 #######################################
 def hello_world_3args(a,b,c):
@@ -60,9 +57,9 @@ def hello_world_3args(a,b,c):
 #hello_world_3args(c1,c2,c3)
 
 #ex3   
-print(range(10))
-print(range(1,10))
-print(range(1,10,2))
+#print(range(10))
+#print(range(1,10))
+#print(range(1,10,2))
 
 #ex4 adding two numbers
 def add_two_numbers(a,b):
@@ -73,7 +70,6 @@ a1 = 6
 b1 = 7
      
 #add_two_numbers()
-add_two_numbers(a1,b1)
 
 #with return
 
@@ -85,36 +81,30 @@ a1 = 4
 b1 = 21
      
 #add_two_numbers()
-print(add_two_numbers2(a1,b1))
 
     
 #temperature conversion exercise
 
-def tempConverter(celsius):
-    
+def tempConverter():
+    userInput = int(input("What's the temperature in yoour city today?"))
+    celsius = userInput
     fahrenheit = celsius * 9.0 /5.0 + 32
     kelvin = celsius + 273.15
     
     print("That's {} degrees in fahrenheit and {} degrees in kelvin.".format(fahrenheit, kelvin))
     
-userInput = int(input("What's the temperature in your city today?"))
-    
-tempConverter(userInput)
-
 
 #ex 5 version with return
-userInput = int(input("What's the temperature in your city today?"))
 
-def tempConverter2(celsius):
-    
+
+def tempConverter2():
+    userInput = int(input("What's the temp. in your city today?"))
+    celsius = userInput
     fahrenheit = celsius * 9.0 /5.0 + 32
     kelvin = celsius + 273.15
     
     return "That's {} degrees in fahrenheit and {} degrees in kelvin.".format(fahrenheit, kelvin)
     
-print(tempConverter2(userInput))
-result = tempConverter2(userInput)
-print(result)
 
 #another version
 
@@ -123,10 +113,7 @@ def tempConv(celsius):
     kelvin = celsius + 273.15
     return (fahrenheit, kelvin)
 
-userInput = 10
 
-outputFahr, outputKel = tempConv(userInput)
-print(outputFahr, outputKel)
 
 #another version
 def convTemp():
@@ -136,9 +123,6 @@ def convTemp():
     print("Converting temp in c to fahrenheit and kelvin...")
     print("That's {} degrees in fahrenheit and {} degrees in kelvin.".format(fahrenheit, kelvin))
     return (fahrenheit, kelvin)
-
-#convTemp()
-kelvin, fahrenheit = convTemp()
 
 #another version
     
@@ -170,8 +154,7 @@ def convert_temp_kelvin_to_fahr(celsius):
     mainResult = kelvin
     return mainResult
 
-userInput = int(input("What's the temperature in your city today?"))
-mainResult = convert_temp_kelvin_to_fahr(userInput)
+
 #
 #########################################
 #
@@ -183,7 +166,6 @@ def convertDistance(miles):
     
     return ("miles:" + str(miles), "kilometeres" + str(kilometers))
 
-convertDistance(10)
 #
 #########################################
     
@@ -194,7 +176,6 @@ def convertDistance():
     
     return (miles, kilometers)
 
-convertDistance()
 
 #miles - km game
 #
@@ -204,11 +185,11 @@ def convertDistance(miles):
 #    return ("The distance in miles is: " + str(miles) + " and the distance in kilometers is: " + str(kilometers))
 
 
-London_Bristol = convertDistance(118)
-print(London_Bristol)
-London_Cardiff = convertDistance(150.6)
-London_Brighton = convertDistance(67)
-London_Birmingham = convertDistance(126)
+#London_Bristol = convertDistance(118)
+#print(London_Bristol)
+#London_Cardiff = convertDistance(150.6)
+#London_Brighton = convertDistance(67)
+#London_Birmingham = convertDistance(126)
 
 ###importing
 #
