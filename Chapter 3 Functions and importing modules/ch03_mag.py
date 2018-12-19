@@ -41,8 +41,8 @@ Created on Thu Nov 29 13:54:59 2018
 #hi_maggie()
 
 ######################################
-#def hello_world_3args(a,b,c):
-#    print ("{}{}{}".format(a,b,c))
+def hello_world_3args(a,b,c):
+    print ("{}{}{}".format(a,b,c))
     
 #a1 = "hello "
 #b1 = "world "
@@ -74,16 +74,16 @@ Created on Thu Nov 29 13:54:59 2018
     
 ##########################################################
 #
-#def tempConverter(celsius):
-#    
-#    fahrenheit = celsius * 9.0 /5.0 + 32
-#    kelvin = celsius + 273.15
-#    
-#    print("That's {} degrees in fahrenheit and {} degrees in kelvin.".format(fahrenheit, kelvin))
-#    
-#userInput = int(input("What's the temperature in your city today?"))
-#    
-#tempConverter(userInput)
+def tempConverter(celsius):
+    
+    fahrenheit = celsius * 9.0 /5.0 + 32
+    kelvin = celsius + 273.15
+    
+    print("That's {} degrees in fahrenheit and {} degrees in kelvin.".format(fahrenheit, kelvin))
+    
+userInput = int(input("What's the temperature in your city today?"))
+    
+tempConverter(userInput)
 
 
 #with return#######################
