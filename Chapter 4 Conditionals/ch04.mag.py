@@ -2,49 +2,13 @@
 """
 Created on Tue Dec  4 11:47:35 2018
 
-@author: nahas
+@author: maggie
 """
 import random
 import datetime
 import time
 
-def luckyNumberRandom():
-    name = input("Please type your name here: ")
-    print ("hello " + name.upper())
-    number = int(input("Please give a number "))
-    
-    print("Your lucky number is: " + str(random.randint(1, number)))
-
-#######################################################
-    
-startTime = time.time()
-print("date and time", datetime.datetime.now())
-print()
-print("current time", datetime.datetime.now().time())
-
-luckyNumberRandom()
-
-processTime = time.time()-startTime
-
-print()
-print("Program running time:", round(processTime, 2),"second")
-
-###############################################################
-
-age = 15
-
-isaTeen = age >= 13 and age <= 19
-
-print(isaTeen)
-
-age = 22
-
-isaTeen = age >= 13 and age <= 19
-
-
-print(isaTeen)
-
-#if, elif, else statements
+#if, elif, else - using conditional statements
 
 number = input("Enter a number between 1 and 10: ")
 number = int(number) 
@@ -78,6 +42,41 @@ def checkTeen(age):
         print("You're not a teen.")
     
 checkTeen(20)
+
+
+def luckyNumberRandom():
+    name = input("Please type your name here: ")
+    print ("hello " + name.upper())
+    number = int(input("Please give a number "))
+    
+    print("Your lucky number is: " + str(random.randint(1, number)))
+
+#######################################################
+    
+startTime = time.time()
+print("date and time: ", datetime.datetime.now())
+print()
+print("current time: ", datetime.datetime.now().time())
+
+luckyNumberRandom()
+
+processTime = time.time()-startTime
+
+print()
+print("Program running time:", round(processTime, 2),"second")
+
+###############################################################
+
+#testing for teenagers
+age = 15
+isaTeen = age >= 13 and age <= 19
+print(isaTeen)
+
+age = 22
+isaTeen = age >= 13 and age <= 19
+
+print(isaTeen)
+
 
     
     
