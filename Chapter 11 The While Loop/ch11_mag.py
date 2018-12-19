@@ -4,6 +4,8 @@ Created on Tue Dec 18 09:09:06 2018
 
 @author: mag
 """
+from random import randint
+
 #ex1 repeated division
 x = 33
 while x >= 1:
@@ -56,6 +58,90 @@ while True:
         break
     print("Hello", name)
     
-#ex5 guessing game - in a separate file
-#ex6 dice game - in a separate file       
+#ex5 guessing game 
+    
+    def guess(attempts, intrange):
+    number = randint(1, intrange)
+    print("Welcome! Can you guess my secret number? ")
+    
+    while attempts > 0:
+        print(f"You have {attempts} attempts left.")
+        guess = int(input("Take a guess! "))
+        
+        if guess > number:
+            print("No, too high!")
+        elif guess < number:
+            print("No, too low!")
+        else:
+            print("Well done. You got it right!")
+            
+            break
+        
+        print("Game over! Thanks for playing!")
+        attempts = attempts - 1
+        
+guess(4,10)
+    
+    
+    
+#ex6 dice game 
+
+def guess(attempts, intrange):
+    number = randint(1, intrange)
+    print("Welcome! Can you guess my secret number? ")
+    
+    while attempts > 0:
+        print(f"You have {attempts} attempts left.")
+        guess = int(input("Take a guess! "))
+        
+        if guess > number:
+            print("No, too high!")
+        elif guess < number:
+            print("No, too low!")
+        else:
+            print("Well done. You got it right!")
+            
+            break
+        
+        print("Game over! Thanks for playing!")
+        attempts = attempts - 1
+        
+guess(4,10)
+       
+#rounds  of  a  simple  dice  game  as  the  user  wants.  Each  round  should 
+#require the user to enter “odd”, “even”, or “quit”. The game then produces two
+#dice  values  randomly  between  1  and  6,  adds  them  together,  and determines
+#whether  the  result  is  odd  or  even.  If  the  user  correctly predicted  the  
+#oddness  or  evenness  then  it  should  print  “You  win!”, otherwise  it  should  
+#print  “Sorry,  you  lose!”.  This  should  continue  until  the user types “quit”.
+
+
+def sumDice():
+    diceResult = (randint(1,6) + randint(1,6))
+    if diceResult % 2 == 0:
+        return "even"
+    else:
+        return "odd"
+    
+def diceGame():
+    userGuess = ""
+    while userGuess != "quit":
+        userGuess = input("Guess the result of dice game? Type odd, even or quit: ")
+        diceResult = sumDice()
+
+        if userGuess == 'quit':
+            print('Thanks, bye!')
+            break
+        elif userGuess == diceResult:
+            print("You win!")
+#        elif userGuess != diceResult:
+#            print("You lose!")
+        else:
+            print("You lose!")
+#        else:
+#           print('system error')
+            
+diceGame()    
+    
+    
     
