@@ -33,6 +33,12 @@ tempConverter()
 userInput = int(input("What's the temperature in your city today?"))
 mainResult = convert_temp_kelvin_to_fahr(userInput)
 
+a2 = 6
+b2 = 7
+
+a3 = 4
+b3 = 21
+
 a1 = "hello "
 b1 = "world "
 c1 = "it's "

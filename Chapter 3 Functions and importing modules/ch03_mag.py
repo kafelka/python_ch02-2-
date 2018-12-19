@@ -66,8 +66,7 @@ def add_two_numbers(a,b):
 #     print (5 + 3)
      print (a + b)
      
-a1 = 6
-b1 = 7
+
      
 #add_two_numbers()
 
@@ -77,8 +76,7 @@ def add_two_numbers2(a,b):
 #     print (5 + 3)
     return a + b
      
-a1 = 4
-b1 = 21
+
      
 #add_two_numbers()
 
