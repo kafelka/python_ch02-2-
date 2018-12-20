@@ -139,18 +139,35 @@ gifts = {
         "chocolates": (4, 5, "almond"),
         "books": (5, 10, "fiction")
         }
-loopRound = 1  
-for gift, item in gifts.items():
-    print("open box", loopRound, "the gift is", gift)
-    print("the item is", item)
-    if item >= 3:
-        print("Nice, I have received", item, "of", gift)
-    else:
-        print("Please give me more of", gift)
-        
-    loopRound += 1
-    
+#loopRound = 1  
+#for gift, item in gifts.items():
+#    print("open box", loopRound, "the gift is", gift)
+#    print("the item is", item)
+#    if item >= 3:
+#        print("Nice, I have received", item, "of", gift)
+#    else:
+#        print("Please give me more of", gift)
+#        
+#    loopRound += 1
+#    
 #    
 #    for gift in gifts:
 #        print("open box" loopRound, "the git is", gift)
 #        print("the item is", gifts[gift])
+    
+
+print(len("magdalena"))
+print(list(range(10)))
+print(list(range(1,10)))
+print(list(range(1,10,2)))
+
+#ex10
+values = [3,12,9]
+for index in range(len(values)):
+    values[index] = values[index] ** 2
+print(values)
+
+for i in range(3,10,2):
+    print(i)
+
+#ex11
