@@ -4,41 +4,41 @@ Created on Thu Dec 20 09:16:58 2018
 
 @author: maggie
 """
-#ex1
-my_shopping_cart = ["cake", "plates", "plastic forks", "juice", "cups"]
-for item in my_shopping_cart: 
-    print(item)
-
-#ex2 loop through a list
-values = [875, 23, 451]
-
-for val in values:
-    print("--->" + str(val))
-    
-for val in values:
-    print("--->" + str(val + 50))
-
-for val in values:
-    print("--->" + str(val))
-    print("--->" + str(val + 50))
-
-#ex3
-values = ["this", 55, "that"]
-for item in values:
-    print("***", item)
-  
-#ex4 loop through strings
-for char in "Yes":
-    print(char)
-    
-for char in "I am a cat.".split():  #to divide by words
-    print(char)  
-    
-for char in "I am a cat.".split("a"):  #to divide by words, omit "a"
-    print(char)    
-    
-for char in "I-am-a-cat.".split("-"):  #omit "-"
-    print(char)    
+##ex1
+#my_shopping_cart = ["cake", "plates", "plastic forks", "juice", "cups"]
+#for item in my_shopping_cart: 
+#    print(item)
+#
+##ex2 loop through a list
+#values = [875, 23, 451]
+#
+#for val in values:
+#    print("--->" + str(val))
+#    
+#for val in values:
+#    print("--->" + str(val + 50))
+#
+#for val in values:
+#    print("--->" + str(val))
+#    print("--->" + str(val + 50))
+#
+##ex3
+#values = ["this", 55, "that"]
+#for item in values:
+#    print("***", item)
+#  
+##ex4 loop through strings
+#for char in "Yes":
+#    print(char)
+#    
+#for char in "I am a cat.".split():  #to divide by words
+#    print(char)  
+#    
+#for char in "I am a cat.".split("a"):  #to divide by words, omit "a"
+#    print(char)    
+#    
+#for char in "I-am-a-cat.".split("-"):  #omit "-"
+#    print(char)    
       
 #ex5  loop through a dictionary
 #birds = ("tucan", "paradise bird", "owl")
@@ -155,87 +155,112 @@ gifts = {
 #        print("open box" loopRound, "the git is", gift)
 #        print("the item is", gifts[gift])
     
-print(len("magdalena"))
-print(list(range(10)))
-print(list(range(1,10)))
-print(list(range(1,10,2)))
+#print(len("magdalena"))
+#print(list(range(10)))
+#print(list(range(1,10)))
+#print(list(range(1,10,2)))
+#
+##ex10 looping with range/index
+#values = [3,12,9]
+#for index in range(len(values)):
+#    values[index] = values[index] ** 2
+#print(values)
+#
+#for i in range(3,10,2):
+#    print(i)
+#      
+#print(list(range(3)))
+#print(type(range(3)))
+#
+#values = [3, 12, 9, 5, 6]
+#for index in range(1, len(values), 2):
+#    print(values[index], "with index", index)
+#    values[index] = values[index] ** 2
+#    
+#values = [3,12,9]
+#for index in range(len(values)):
+#    print(index)
+#    values[index] = values[index] * 2
+#print(values)
+#
+##ex11
+#names = ["milly", "bob", "kate", "mary", "alanis", "elly"]
+#for i in range(1, len(names), 3):
+#    print("find them", names[i])
+#        
+#
+##ex12 using breaks in for loops
+#nums = [1,5,30,200,101,100,22]
+#for n in nums:
+#    if n > 100:
+#        print("found", n)
+#        break
+#    
+#nums = [1,5,30,200,101,100,22]
+#print("length",len(nums))
+#print(list(range(len(nums))))
+#for index in range(len(nums)):
+#    if nums[index] > 100:
+#        print("break:", nums[index], "with index", index)
+#        break
+#    
+#nums = [1,5,30,200,101,100,22]
+#for index in range(len(nums)):
+#    print("loop index", index, "with value", nums[index])
+#    if nums[index] > 100:
+#        print("break:", nums[index], "with index", index)
+#        break
+#print("**************")
+#nums = [1,5,30,200,101,100,22]
+#for index in range(len(nums)):
+#    print("loop index", index, "with value", nums[index])
+#    if nums[index] > 100:
+#        print("need to break:", nums[index], "with index", index)
+#    else:
+#        print("Oh, you forgot to break the loop", nums[index], "with index", index)
+#        
+#
+#colours = ["red", "green", "red", "green", "blue", "green", "green"]
+#d = {}
+#for item in colours:
+#    
+#    if item not in d:
+#        d[item] = 1
+#        print(d, "first time")
+#        
+#    else: 
+#        d[item] = d[item] + 1
+#        print(d)
+#    
+#    
+##ex13 nested loops
+outer_vals_list = [1, 2, 3]
+inner_vals_list = ["A", "B", "C"]
+dict = {}
 
-#ex10 looping with range/index
-values = [3,12,9]
-for index in range(len(values)):
-    values[index] = values[index] ** 2
-print(values)
+for outer_val in [1, 2, 3]:
+#    print(outer_val)
+    for inner_val in ["A", "B", "C"]:
+#        print(inner_val)
+        dict[outer_val] = inner_val
+        print(dict)
 
-for i in range(3,10,2):
-    print(i)
-      
-print(list(range(3)))
-print(type(range(3)))
 
-values = [3, 12, 9, 5, 6]
-for index in range(1, len(values), 2):
-    print(values[index], "with index", index)
-    values[index] = values[index] ** 2
-    
-values = [3,12,9]
-for index in range(len(values)):
-    print(index)
-    values[index] = values[index] * 2
-print(values)
 
-#ex11
-names = ["milly", "bob", "kate", "mary", "alanis", "elly"]
-for i in range(1, len(names), 3):
-    print("find them", names[i])
-        
 
-#ex12 using breaks in for loops
-nums = [1,5,30,200,101,100,22]
-for n in nums:
-    if n > 100:
-        print("found", n)
-        break
-    
-nums = [1,5,30,200,101,100,22]
-print("length",len(nums))
-print(list(range(len(nums))))
-for index in range(len(nums)):
-    if nums[index] > 100:
-        print("break:", nums[index], "with index", index)
-        break
-    
-nums = [1,5,30,200,101,100,22]
-for index in range(len(nums)):
-    print("loop index", index, "with value", nums[index])
-    if nums[index] > 100:
-        print("break:", nums[index], "with index", index)
-        break
-print("**************")
-nums = [1,5,30,200,101,100,22]
-for index in range(len(nums)):
-    print("loop index", index, "with value", nums[index])
-    if nums[index] > 100:
-        print("need to break:", nums[index], "with index", index)
-    else:
-        print("Oh, you forgot to break the loop", nums[index], "with index", index)
-        
 
-colours = ["red", "green", "red", "green", "blue", "green", "green"]
-d = {}
-for item in colours:
-    
-    if item not in d:
-        d[item] = 1
-        print(d, "first time")
-        
-    else: 
-        d[item] = d[item] + 1
-        print(d)
-    
-    
-#ex13 nested loops
-outer_vals = [1, 2, 3]
-inner_vals = ["A", "B", "C"]
-for oval in outer_vals:
-    for ival in inner_vals:
-        print(oval, ival)
+
+
+
+
+
+
+#page 133
+#welcome, venerable Amali    and two line below:
+#Welcome, Mr Richard
+
+#under ex4
+#The subclass may override some features of the inherited features 
+#and also may add some additional features.
+
+#OOP project 7.7 not clear - look into curriculum
