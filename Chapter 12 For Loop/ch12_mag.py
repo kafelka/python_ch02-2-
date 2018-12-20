@@ -124,11 +124,12 @@ def sumValues(I):
 print(sumValues(values))
 
 
-valuesList = [3,10,9]
+valuesList = [3,12,9]
 total = 0
 for value in valuesList:
-    print(total, "before adding", value, "total is", total)
-    total =+ value
+    print("Before adding", value, "total is", total)
+    total = value + total
     print("After adding", value, "total is", total)
     
-print("Total: " + str(total))
+print("Total:", str(total))
+
