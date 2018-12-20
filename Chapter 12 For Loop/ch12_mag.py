@@ -133,3 +133,24 @@ for value in valuesList:
     
 print("Total:", str(total))
 
+gifts = {
+        "socks": (6, 15, "green"),
+        "tea": (2, 5, "cherry"),
+        "chocolates": (4, 5, "almond"),
+        "books": (5, 10, "fiction")
+        }
+loopRound = 1  
+for gift, item in gifts.items():
+    print("open box", loopRound, "the gift is", gift)
+    print("the item is", item)
+    if item >= 3:
+        print("Nice, I have received", item, "of", gift)
+    else:
+        print("Please give me more of", gift)
+        
+    loopRound += 1
+    
+#    
+#    for gift in gifts:
+#        print("open box" loopRound, "the git is", gift)
+#        print("the item is", gifts[gift])
