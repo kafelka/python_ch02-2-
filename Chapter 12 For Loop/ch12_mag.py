@@ -155,7 +155,6 @@ gifts = {
 #        print("open box" loopRound, "the git is", gift)
 #        print("the item is", gifts[gift])
     
-
 print(len("magdalena"))
 print(list(range(10)))
 print(list(range(1,10)))
@@ -169,5 +168,45 @@ print(values)
 
 for i in range(3,10,2):
     print(i)
+      
+print(list(range(3)))
+print(type(range(3)))
+
+values = [3, 12, 9, 5, 6]
+for index in range(1, len(values), 2):
+    print(values[index], "with index", index)
+    values[index] = values[index] ** 2
+    
+values = [3,12,9]
+for index in range(len(values)):
+    print(index)
+    values[index] = values[index] * 2
+print(values)
 
 #ex11
+names = ["milly", "bob", "kate", "mary", "alanis", "elly"]
+for i in range(1, len(names), 3):
+    print("find them", names[i])
+        
+
+#ex12
+nums = [1,5,30,200,101,100,22]
+for n in nums:
+    if n > 100:
+        print("found", n)
+        break
+    
+nums = [1,5,30,200,101,100,22]
+print("length",len(nums))
+print(list(range(len(nums))))
+for index in range(len(nums)):
+    if nums[index] > 100:
+        print("break:", nums[index], "with index", index)
+        break
+    
+nums = [1,5,30,200,101,100,22]
+for index in range(len(nums)):
+    print("loop index", index, "with value", nums[index])
+    if nums[index] > 100:
+        print("break:", nums[index], "with index", index)
+        break
