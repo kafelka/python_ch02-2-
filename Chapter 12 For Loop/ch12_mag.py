@@ -9,7 +9,7 @@ my_shopping_cart = ["cake", "plates", "plastic forks", "juice", "cups"]
 for item in my_shopping_cart: 
     print(item)
 
-#ex2 
+#ex2 loop through a list
 values = [875, 23, 451]
 
 for val in values:
@@ -27,7 +27,7 @@ values = ["this", 55, "that"]
 for item in values:
     print("***", item)
   
-#ex4
+#ex4 loop through strings
 for char in "Yes":
     print(char)
     
@@ -40,7 +40,7 @@ for char in "I am a cat.".split("a"):  #to divide by words, omit "a"
 for char in "I-am-a-cat.".split("-"):  #omit "-"
     print(char)    
       
-#ex5  
+#ex5  loop through a dictionary
 #birds = ("tucan", "paradise bird", "owl")
 #
 #for item in tuple:
@@ -107,7 +107,7 @@ for metal in metals:
     if densities[metal][0]>10:
         print(metal, densities[metal][0])
     
-#ex9
+#ex9 search inside for loops
 values = [3,12,9]
 total = 0
 for val in values:
@@ -160,7 +160,7 @@ print(list(range(10)))
 print(list(range(1,10)))
 print(list(range(1,10,2)))
 
-#ex10
+#ex10 looping with range/index
 values = [3,12,9]
 for index in range(len(values)):
     values[index] = values[index] ** 2
@@ -189,7 +189,7 @@ for i in range(1, len(names), 3):
     print("find them", names[i])
         
 
-#ex12
+#ex12 using breaks in for loops
 nums = [1,5,30,200,101,100,22]
 for n in nums:
     if n > 100:
@@ -210,3 +210,32 @@ for index in range(len(nums)):
     if nums[index] > 100:
         print("break:", nums[index], "with index", index)
         break
+print("**************")
+nums = [1,5,30,200,101,100,22]
+for index in range(len(nums)):
+    print("loop index", index, "with value", nums[index])
+    if nums[index] > 100:
+        print("need to break:", nums[index], "with index", index)
+    else:
+        print("Oh, you forgot to break the loop", nums[index], "with index", index)
+        
+
+colours = ["red", "green", "red", "green", "blue", "green", "green"]
+d = {}
+for item in colours:
+    
+    if item not in d:
+        d[item] = 1
+        print(d, "first time")
+        
+    else: 
+        d[item] = d[item] + 1
+        print(d)
+    
+    
+#ex13 nested loops
+outer_vals = [1, 2, 3]
+inner_vals = ["A", "B", "C"]
+for oval in outer_vals:
+    for ival in inner_vals:
+        print(oval, ival)
