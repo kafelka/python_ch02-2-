@@ -246,7 +246,9 @@ for outer_val in [1, 2, 3]:
         print(dict)
 
 
-
+#for i in range(1,7):
+#    for j n range(1,11):
+#        print("{0:})
 
 
 
