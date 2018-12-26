@@ -14,16 +14,21 @@ class MovingShape:
         self.shape = shape
         self.diameter = diameter
         self.figure = Shape(shape, diameter)
+        self.dx = dx
+        self.dy = dy
+        self.setXY(frame)
+        
+    def setXY(self,frame):
 #        setting min and max x and y for centre of the figure
-        self.minx = diameter / 2
-        self.maxx = frame.width - diameter / 2
-        self.miny = diameter / 2
-        self.maxy = frame.height - diameter / 2
+        self.minx = self.diameter / 2
+        self.maxx = frame.width - self.diameter / 2
+        self.miny = self.diameter / 2
+        self.maxy = frame.height - self.diameter / 2
         # original version with random
 #        self.x = frame.width * r()
 #        self.y = frame.height * r()    
-#        self.x = self.minx + (frame.width - diameter) * r()
-#        self.y = self.miny + (frame.height - diameter) * r()
+#        self.x = self.minx + (frame.width - self.diameter) * r()
+#        self.y = self.miny + (frame.height - self.diameter) * r()
         
 #        use randint instead of the above cause it's easier
         self.x = randint(self.minx, self.maxx)
@@ -31,8 +36,8 @@ class MovingShape:
         
 #        setting starting position and speed(velocity)
         self.goto(self.x, self.y)
-        self.dx = dx
-        self.dy = dy
+        
+  
         
 #        move figure to position x, y 
     def goto(self, x, y):
@@ -41,9 +46,9 @@ class MovingShape:
 #        function that moves the figure one step further
     def moveTick(self):
 #        randomly change direction
-        if r() < 0.05:
+        if r() < 0.04:
             self.dx = self.dx * -1
-        if r() < 0.05:
+        if r() < 0.04:
             self.dy = self.dy * -1
 #        move
         self.x = self.x + self.dx
@@ -69,12 +74,24 @@ class MovingShape:
 class Square(MovingShape):
     def __init__(self, frame, diameter):
 #        MovingShape.__init__ (self, frame, "square", diameter, 1 + 3 * r(), 1 + 3 * r())
-        MovingShape.__init__ (self, frame, "square", diameter, randint(3, 10), randint(3, 10))
+        MovingShape.__init__ (self, frame, "square", diameter, randint(1, 4), randint(1, 4))
+        
 class Diamond(MovingShape):
     def __init__(self, frame, diameter):
 #        MovingShape.__init__ (self, frame, "diamond", diameter, 1 + 3 * r(), 1 + 3 * r())
-        MovingShape.__init__ (self, frame, "diamond", diameter, randint(1, 6), randint(1, 6))
+        MovingShape.__init__ (self, frame, "diamond", diameter, randint(1, 4), randint(1, 4))
+        
+    def setXY(self,frame):
+#        diameter ** 2
+        self.minx = int((self.diameter / 2) * 2**0.5)
+        self.maxx = int(frame.width - (self.diameter / 2) * 2**0.5)
+        self.miny = int((self.diameter / 2) * 2**0.5)
+        self.maxy = int(frame.height - (self.diameter / 2) * 2**0.5)
+        self.x = randint(self.minx, self.maxx)
+        self.y = randint(self.miny, self.maxy)
+        self.goto(self.x, self.y)
+        
 class Circle(MovingShape):
     def __init__(self, frame, diameter):
 #        MovingShape.__init__ (self, frame, "circle", diameter, 1 + 3 * r(), 1 + 3 * r())
-        MovingShape.__init__ (self, frame, "circle", diameter, randint(2, 7), randint(2, 7))
+        MovingShape.__init__ (self, frame, "circle", diameter, randint(1, 4), randint(1, 4))

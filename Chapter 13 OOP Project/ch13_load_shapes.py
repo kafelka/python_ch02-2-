@@ -2,7 +2,7 @@
 """
 Created on Fri Dec 21 12:20:52 2018
 
-@author: nahas
+@author: mag
 """
 from Shapes import *
 
