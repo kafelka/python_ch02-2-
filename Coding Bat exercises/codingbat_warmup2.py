@@ -78,11 +78,21 @@ print("\n")
 #last2('xaxxaxaxx') → 1
 #last2('axxxaaxx') → 2
 
-#def last2(str):
-#    
-#    return
-#    
-#print(last2("Blur"))
+def last2(str):
+    lastTwo = str[-2:]
+    firstPart = str[:-2]
+    
+    count = 0
+    for n in range(len(firstPart)):
+        if firstPart[n:n+2] == lastTwo:
+            count += 1
+            
+    return count
+    
+print(last2("Blur"))
+print(last2('xaxxaxaxx'))
+print(last2('axxxaaxx'))
+print(last2("xxxx"))
 
 ############################
 print("\n")
@@ -106,7 +116,7 @@ print(array_count9([9,9,9,9]))
 print(array_count9([1,2,4]))
 
 ############################
-print("\n")
+print("front9 \n")
 
 #Given an array of ints, return True if one of the first 4 elements in 
 #the array is a 9. The array length may be less than 4.
@@ -115,13 +125,20 @@ print("\n")
 #array_front9([1, 2, 3, 4, 5]) → False
 
 def array_front9(nums):
-    return
-    
+    first4 = nums[:4]
 
-print(array_count9([1,2,9]))
-print(array_count9([9,9,9]))
-print(array_count9([9,9,9,9]))
-print(array_count9([1,2,4]))
+    for i in range(len(first4)):
+        if first4[i] == 9:
+            return True
+    return False
+
+
+print(array_front9([1,2,9]))
+print(array_front9([9,9,9]))
+print(array_front9([9,9,9,9]))
+print(array_front9([1,2,4]))
+print(array_front9([1,2,3,4,5]))
+print(array_front9([1,2,3,4,9]))
 
 ############################
 print("\n")
