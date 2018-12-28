@@ -2,7 +2,7 @@
 """
 Created on Sun Dec  9 21:06:14 2018
 
-@author: nahas
+@author: mag
 """
 #CodingBat Logic1 exercises
 
@@ -69,6 +69,7 @@ print("\n")
 
 def squirrel_play(temp, is_summer):
     if temp >= 60 and temp <= 90:
+#    if 60 <= temp <= 90:
         return True
     elif is_summer == True and (temp >= 60 and temp <= 100):
         return True
@@ -131,6 +132,118 @@ print(sorta_sum(10, 11))
 print("\n")
 
 
+#Given a day of the week encoded as 0=Sun, 1=Mon, 2=Tue, ...6=Sat, and 
+#a boolean indicating if we are on vacation, return a string of the form 
+#"7:00" indicating when the alarm clock should ring. Weekdays, the alarm 
+#should be "7:00" and on the weekend it should be "10:00". Unless we are 
+#on vacation -- then on weekdays it should be "10:00" and weekends it 
+#should be "off".
+#
+#alarm_clock(1, False) → '7:00'
+#alarm_clock(5, False) → '7:00'
+#alarm_clock(0, False) → '10:00'
+
+def alarm_clock(day, vacation):
+    holiday = {0: "off",
+               1: "10:00",
+               2: "10:00",
+               3: "10:00",
+               4: "10:00",
+               5: "10:00",
+               6: "off"
+                   }
+    
+    nonHoliday = {0: "10:00",
+                  1: "7:00",
+                  2: "7:00",
+                  3: "7:00",
+                  4: "7:00",
+                  5: "7:00",
+                  6: "10:00"
+            }
+    
+    if vacation == True:
+        return holiday[day]
+    else:
+        return nonHoliday[day]
+
+
+#def alarm_clock(day, vacation):
+#    if vacation == True and day in [0,6]:
+#        return "off"
+#    elif vacation == True:
+#        return "10:00"
+#    elif vacation == False and day in [0,6]:
+#        return "10:00"
+#    else:
+#        return "7:00"
+    
+print(alarm_clock(1, False))
+print(alarm_clock(4, True))
+print(alarm_clock(0, False))
+print(alarm_clock(6, True))
+############################
+print("\n")
+
+#The number 6 is a truly great number. Given two int values, a and b, 
+#return True if either one is 6. Or if their sum or difference is 6. 
+#Note: the function abs(num) computes the absolute value of a number.
+#
+#love6(6, 4) → True
+#love6(4, 5) → False
+#love6(1, 5) → True
+
+def love6(a, b):
+    if a == 6 or b == 6:
+        return True
+    elif a + b == 6 or a - b == 6 or b - a == 6:
+#        elif a + b == 6 or abs(a - b) == 6:
+        return True
+    else:
+        return False
+
+print(love6(6, 4))
+print(love6(4, 5))
+print(love6(1, 5))
 
 ############################
 print("\n")
+
+#Given a number n, return True if n is in the range 1..10, inclusive. 
+#Unless outside_mode is True, in which case return True if the number 
+#is less or equal to 1, or greater or equal to 10.
+#in1to10(5, False) → True
+#in1to10(11, False) → False
+#in1to10(11, True) → True
+
+def in1to10(n, outside_mode):
+    if outside_mode == True and (n <= 1 or n >= 10):
+        return True
+    elif outside_mode == False and n in range(1,11):
+        return True
+    else:
+        return False
+
+print(in1to10(5, False))
+print(in1to10(11, False))
+print(in1to10(11, True))
+print(in1to10(9, True))
+############################
+print("\n")
+
+#Given a non-negative number "num", return True if num is within 2 of 
+#a multiple of 10. Note: (a % b) is the remainder of dividing a by b, 
+#so (7 % 5) is 2.
+#near_ten(12) → True
+#near_ten(17) → False
+#near_ten(19) → True
+
+def near_ten(num):
+    if num % 10 <= 2 or num % 10 >= 8:
+        return True
+    else:
+        return False
+
+print(near_ten(12))
+print(near_ten(17))
+print(near_ten(19))
