@@ -151,12 +151,24 @@ print("\n")
 #array123([1, 1, 2, 1, 2, 3]) → True
 
 def array123(nums):
-    return
-
-
-array123([1, 1, 2, 3, 1]) 
-array123([1, 1, 2, 4, 1]) 
-array123([1, 1, 2, 1, 2, 3]) 
+#    if 1 in nums:
+#        if 2 in nums:
+#            if 3 in nums:
+#               return True 
+#    
+#    return False
+    
+    arr123 = set([1, 2, 3])
+    
+    for i in nums:
+        if i in arr123:
+            arr123.remove(i)
+            
+    return arr123 == set([])
+    
+print(array123([1, 1, 2, 3, 1]))
+print(array123([1, 1, 2, 4, 1]))
+print(array123([1, 1, 2, 1, 2, 3]))
 ############################
 print("\n")
 
@@ -177,3 +189,18 @@ string_match('abc', 'abc')
 string_match('abc', 'axc') 
 ############################
 print("\n")
+
+def consecutive123(nums):
+    
+    for i in range(len(nums)-2):
+        if nums[i] == 1:
+            if nums[i+1] == 2:
+                if nums[i+2] == 3:
+                    return True
+                
+    return False            
+
+print(consecutive123([1, 1, 2, 3, 1]))
+print(consecutive123([1, 1, 2, 4, 1]))
+print(consecutive123([1, 1, 2, 1, 2, 3]))
+print(consecutive123([1, 1, 2, 4, 3]))
