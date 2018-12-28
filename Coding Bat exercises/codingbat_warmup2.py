@@ -181,20 +181,26 @@ print("\n")
 #string_match('abc', 'axc') → 0
 
 def string_match(a, b):
-    
-    
-    return
+    count = 0
+    length = min(len(a), len(b))
+    for i in range(length-1):
+        if a[i] == b[i]:
+            if a[i+1] == b[i+1]:
+                count += 1
+    return count
 
 
-string_match('xxcaazz', 'xxbaaz') 
-string_match('abc', 'abc') 
-string_match('abc', 'axc') 
+print(string_match('xxcaazz', 'xxbaaz'))
+print(string_match('abc', 'abc')) 
+print(string_match('abc', 'axc'))
 ############################
 print("\n")
 
 def consecutive123(nums):
     
     for i in range(len(nums)-2):
+#        if nums[i:i+3] == [1,2,3]
+#            return True
         if nums[i] == 1:
             if nums[i+1] == 2:
                 if nums[i+2] == 3:
