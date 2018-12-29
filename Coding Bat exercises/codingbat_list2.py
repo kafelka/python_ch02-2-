@@ -75,12 +75,88 @@ print(centered_average([-10, -4, -2, -4, -2, 0]))
 ############################
 print("\n")
 
+#Return the sum of the numbers in the array, returning 0 for an 
+#empty array. Except the number 13 is very unlucky, so it does not 
+#count and numbers that come immediately after a 13 also do not count.
+#sum13([1, 2, 2, 1]) → 6
+#sum13([1, 1]) → 2
+#sum13([1, 2, 2, 1, 13]) → 6
 
+#def sum13(nums):
+#    count = 0
+#    found13 = False
+#    for i in range(len(nums)):
+#        if nums[i] == 13:
+#            found13 = True
+#        elif found13 == True:
+#            found13 = False
+#        else:
+#            count += nums[i]
+#            found13 = False
+#    return count
+   
+def sum13(nums):     
+    while 13 in nums:
+        if nums.index(13) < len(nums)-1:
+            nums.pop(nums.index(13)+1)
+        nums.pop(nums.index(13))
+    
+    return sum(nums)
 
+print(sum13([1, 2, 2, 1]))
+print(sum13([1, 1]))
+print(sum13([1, 2, 2, 1, 13, 2, 2, 2]))
+print(sum13([13, 1, 2, 13, 2, 1, 13]))
+print(sum([]))
 ############################
 print("\n")
 
+#Return the sum of the numbers in the array, except ignore sections 
+#of numbers starting with a 6 and extending to the next 7 (every 6 
+#will be followed by at least one 7). Return 0 for no numbers.
+#sum67([1, 2, 2]) → 5
+#sum67([1, 2, 2, 6, 99, 99, 7]) → 5
+#sum67([1, 1, 6, 7, 2]) → 4
 
+#def sum67(nums):
+#    while 6 in nums:
+#        index6 = nums.index(6)
+#        index7 = nums.index(7)
+#        nums = nums[:index6] + nums[index7+1:]
+#           
+#    return sum(nums)
 
+def sum67(nums):
+  count = 0
+  blocked = False
+  
+  for n in nums:
+    if n == 6:
+      blocked = True
+    elif n == 7 and blocked:
+      blocked = False
+    elif not blocked:  
+      count += n
+  
+  return count
+
+print(sum67([1, 2, 2]))
+print(sum67([1, 2, 2, 6, 99, 99, 7]))
+print(sum67([1, 1, 6, 7, 2]))
 ############################
 print("\n")
+
+#Given an array of ints, return True if the array contains a 2 next 
+#to a 2 somewhere.
+#has22([1, 2, 2]) → True
+#has22([1, 2, 1, 2]) → False
+#has22([2, 1, 2]) → False
+
+def has22(nums):
+    return
+
+
+
+print(has22([1, 2, 2]))
+print(has22([1, 2, 1, 2]))
+print(has22([2, 1, 2]))
