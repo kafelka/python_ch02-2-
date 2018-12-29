@@ -104,16 +104,87 @@ print("\n")
 #no_teen_sum(2, 13, 1) → 3
 #no_teen_sum(2, 1, 14) → 3
 
+def fix_teen(n):
+    if n < 13 or n > 19:
+        return n
+    elif n in [15,16]:
+        return n
+    else:
+        return 0
+    
+def no_teen_sum(a, b, c):
+    return fix_teen(a) + fix_teen(b) + fix_teen(c)
 
+print(no_teen_sum(1, 2, 3))
+print(no_teen_sum(2, 13, 1))
+print(no_teen_sum(2, 1, 14))
 ############################
 print("\n")
 
+#For this problem, we'll round an int value up to the next multiple of 
+#10 if its rightmost digit is 5 or more, so 15 rounds up to 20. 
+#Alternately, round down to the previous multiple of 10 if its rightmost 
+#digit is less than 5, so 12 rounds down to 10. Given 3 ints, a b c, 
+#return the sum of their rounded values. To avoid code repetition, write 
+#a separate helper "def round10(num):" and call it 3 times. Write the 
+#helper entirely below and at the same indent level as round_sum().
+#round_sum(16, 17, 18) → 60
+#round_sum(12, 13, 14) → 30
+#round_sum(6, 4, 4) → 10
+
+#def round10(num):
+#    if num % 10 >= 5 
+#        return int(num / 10) * 10 + 10
+#    else:
+#        return int(num / 10) * 10
+ 
+def round10(num):   
+    return round(num / 10) * 10
+
+def round_sum(a, b, c):
+    return round10(a) + round10(b) + round10(c)
 
 
+print(round_sum(16, 17, 18))
+print(round_sum(12, 13, 14))
+print(round_sum(6, 4, 4))
 ############################
 print("\n")
 
+#Given three ints, a b c, return True if one of b or c is "close" 
+#(differing from a by at most 1), while the other is "far", differing 
+#from both other values by 2 or more. Note: abs(num) computes the 
+#absolute value of a number.
+#close_far(1, 2, 10) → True
+#close_far(1, 2, 3) → False
+#close_far(4, 1, 3) → True
 
+def close_far(a, b, c):
+    if abs(a - b) <= 1 and abs(a - c) >= 2 and abs(b - c) >= 2:
+        return True
+    elif abs(a - c) <= 1 and abs(a - b) >= 2 and abs(b - c) >= 2:
+        return True
+    else:
+        return False
 
+print(close_far(1, 2, 10))
+print(close_far(1, 2, 3))
+print(close_far(4, 1, 3))
 ############################
 print("\n")
+
+#We want make a package of goal kilos of chocolate. We have small 
+#bars (1 kilo each) and big bars (5 kilos each). Return the number of 
+#small bars to use, assuming we always use big bars before small bars. 
+#Return -1 if it can't be done.
+#make_chocolate(4, 1, 9) → 4
+#make_chocolate(4, 1, 10) → -1
+#make_chocolate(4, 1, 7) → 2
+
+def make_chocolate(small, big, goal):
+    return
+
+
+print(make_chocolate(4, 1, 9))
+print(make_chocolate(4, 1, 10))
+print(make_chocolate(4, 1, 7))
