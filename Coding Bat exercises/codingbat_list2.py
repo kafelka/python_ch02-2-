@@ -153,9 +153,10 @@ print("\n")
 #has22([2, 1, 2]) → False
 
 def has22(nums):
-    return
-
-
+    for n in range(len(nums)-1):
+        if nums[n] == 2 and nums[n+1] == 2:
+            return True
+    return False
 
 print(has22([1, 2, 2]))
 print(has22([1, 2, 1, 2]))
