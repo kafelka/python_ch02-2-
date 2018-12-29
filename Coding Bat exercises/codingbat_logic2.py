@@ -182,9 +182,19 @@ print("\n")
 #make_chocolate(4, 1, 7) → 2
 
 def make_chocolate(small, big, goal):
-    return
-
+    bigBars = int(goal / 5)
+    smallBars = goal % 5
+    
+    if bigBars <= big and smallBars <= small:
+        return smallBars
+    elif big < bigBars:
+        totalChocolate = big * 5 + small * 1
+        if totalChocolate >= goal:
+            return goal - big * 5
+    
+    return -1
 
 print(make_chocolate(4, 1, 9))
 print(make_chocolate(4, 1, 10))
 print(make_chocolate(4, 1, 7))
+ 
