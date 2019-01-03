@@ -225,10 +225,17 @@ class Human():
             
     
 class Climber(Human):            
-    def __init__(self, name, experience=0):
+    def __init__(self, name, experience=0, stamina = None):
         Human.__init__(self, name)
         self.experience = experience
-        self.calcStamina()
+        if stamina == None:
+            self.calcStamina()
+        else:
+            self.stamina = stamina
+            
+    def greeting(self):
+        print(f"Bye climber {self.name}!")
+        
         
     def calcStamina(self):
         if self.experience < 1:
@@ -246,21 +253,23 @@ class Climber(Human):
 
 
 class ModerateCoffeeDrinker(Climber):
-    def __init__(self, name, experience=0, espresso=1):
-        Climber.__init__(self, name, experience)
+    def __init__(self, name, experience, espresso, stamina):
+        Climber.__init__(self, name, experience, stamina)
         self.espresso = espresso
         
     def completedRoutes(self):
         self.routes = self.espresso * self.stamina
+        print(f"You will be able to complete around {self.routes} routes today. Are you sure you do need more coffee? ;-)")
         
     
 class CoffeeAddict(Climber):
-    def __init__(self, name, experience=0, espresso=3):
-        Climber.__init__(self, name, experience)
+    def __init__(self, name, experience, espresso, stamina):
+        Climber.__init__(self, name, experience, stamina)
         self.espresso = espresso
     
     def completedRoutes(self):
-        self.routes = self.espresso * self.stamina * 2
+        self.routes = self.espresso * self.stamina * 3
+        print(f"You're going to smash it! At least {self.routes} routes today!")
     
     
 class NonClimber(Human):
@@ -276,6 +285,15 @@ isClimber = person.isClimber()
 if isClimber == "y":
     experience = int(input("How long have you been climbing (years)? "))
     person = Climber(name, experience)
+    espresso = int(input("How many coffees did you drink before climbing session? "))
+    if 1 <= espresso < 3:
+        person = ModerateCoffeeDrinker(name, experience, espresso, person.stamina)
+        person.completedRoutes()
+    else:
+        person = CoffeeAddict(name, experience, espresso, person.stamina)
+        person.completedRoutes()
+    person.greeting()
 else:
     person = NonClimber(name)
     print("This part has not been finished yet.")
+
