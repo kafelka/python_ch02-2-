@@ -134,7 +134,7 @@ class Dog(Animal):
 class DogAgent(Dog):
     def detect(self):
         if self.barkNumber>=3:
-            print('strenger coming!!!')
+            print('stranger coming!!!')
         
 class Cat(Animal):
     def meow(self):
@@ -212,54 +212,70 @@ machineDog.eat()
 
 
 #UNFINISHED class Human
-#class Human():
-#    def __init__(self, name, age=0, stamina=0):
-#        self.name = name
-#        self.age = age
-#        self.stamina = stamina
-#        
-#        def greeting(self):
-#            print(f"Hello {self.name}!")
-#            
-#class Climber(Human):            
-#    def __init__(self, name, age=0, stamina=0, experience=0, routes=0):
-#        Human.__init__(self, name, age=0, stamina=0, experiece=0, routes=0)
-#        self.routes = routes
-#        self.experience = experience
-#        
-#        def stamina(self):
-##            if self.experience < 1:
-##                self.stamina = 1
-##                print("I bet you have a lot of fun. Keep doing it!")
-#            if self.experience > 1 and self.experience < 2:
-#                self.stamina = 2
-#                print("You have less than " + self.stamina + " years of climbing experience. I bet you like challenges!")
-#            elif self.experience > 2 and self.experience < 4:
-#                self.stamina = 3
-#                print("You are a quite strong climber, have you tried v6s yet? ;-)")
-#            else:
-#                self.stamina = 4
-#                print(f"You have over {self.stamina} years of climbing experience. All you need is some chalk and coffee.")
-#
-##class ModerateCoffeeDrinker(Climber):
-##    def __init__(self, name, age=0, stamina=0, experience=0, routes=0, espresso=1)
-##        self.espresso = espresso
-##        
-##        def completedRoutes:
-##            self.espresso * self.stamina
-##        
-##        
-##    
-##class CoffeeAddict(Climber):
-##    def __init__(self, name, age=0, stamina=0, experience=0, routes=0, espresso=3)
-##    self.espresso = espresso
-##    
-#    
-#class NonClimber(Human):
-#    def __init__(self, name, age=0, stamina=0, routes=0, motivation=0):
-#        self.routes = routes
-#        self.motivation = motivation
-#        
-#        
-#name = input("What's your name? ")
-#print("Hello {}!".format(name)).title() 
+class Human():
+    def __init__(self, name, stamina=0):
+        self.name = name.title()
+        self.stamina = stamina
+        
+    def greeting(self):
+        print(f"Hello {self.name}!")
+        
+    def isClimber(self):
+        return input("Have you ever been climbing? Y/N ").lower()
+            
+    
+class Climber(Human):            
+    def __init__(self, name, experience=0):
+        Human.__init__(self, name)
+        self.experience = experience
+        self.calcStamina()
+        
+    def calcStamina(self):
+        if self.experience < 1:
+            self.stamina = 1
+            print("I bet you have a lot of fun. Keep doing it!")
+        elif 1 <= self.experience < 2:
+            self.stamina = 2
+            print("You have less than " + self.stamina + " years of climbing experience. I bet you like challenges!")
+        elif  2 <= self.experience < 4:
+            self.stamina = 3
+            print("You are quite a strong climber, have you tried v6s yet? ;-)")
+        else:
+            self.stamina = 4
+            print(f"You have over {self.experience} years of climbing experience. All you need is some chalk and coffee.")
+
+
+class ModerateCoffeeDrinker(Climber):
+    def __init__(self, name, experience=0, espresso=1):
+        Climber.__init__(self, name, experience)
+        self.espresso = espresso
+        
+    def completedRoutes(self):
+        self.routes = self.espresso * self.stamina
+        
+    
+class CoffeeAddict(Climber):
+    def __init__(self, name, experience=0, espresso=3):
+        Climber.__init__(self, name, experience)
+        self.espresso = espresso
+    
+    def completedRoutes(self):
+        self.routes = self.espresso * self.stamina * 2
+    
+    
+class NonClimber(Human):
+    def __init__(self, name, motivation=0):
+        Human.__init__(self, name)
+        self.motivation = motivation
+        
+        
+name = input("What's your name? ")
+person = Human(name)
+person.greeting()
+isClimber = person.isClimber()
+if isClimber == "y":
+    experience = int(input("How long have you been climbing (years)? "))
+    person = Climber(name, experience)
+else:
+    person = NonClimber(name)
+    print("This part has not been finished yet.")
