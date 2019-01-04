@@ -211,7 +211,7 @@ machineDog.eat()
 
 
 
-#UNFINISHED class Human
+#Climber/Non-climber game
 class Human():
     def __init__(self, name, stamina=0):
         self.name = name.title()
@@ -273,9 +273,18 @@ class CoffeeAddict(Climber):
     
     
 class NonClimber(Human):
-    def __init__(self, name, motivation=0):
+    def __init__(self, name, motivation):
         Human.__init__(self, name)
+
         self.motivation = motivation
+        
+    def motivationLevel(self):
+        if motivation == 0:
+            print("Oh, ok, maybe you should try something else instead.")
+        elif motivation == 1 or motivation == 2:
+            print("Nice, schedule your induction classes at your local climbing gym, I'm sure you're going yo enjoy it!")
+        elif motivation >= 3:
+            print("That's the spirit! Find your local climbing gym and give it a go! You're going to love it!")
         
         
 name = input("What's your name? ")
@@ -294,6 +303,6 @@ if isClimber == "y":
         person.completedRoutes()
     person.greeting()
 else:
-    person = NonClimber(name)
-    print("This part has not been finished yet.")
-
+    motivation = int(input("How about trying it? What's your motivation on a scale from 0 to 3? "))
+    person = NonClimber(name, motivation)
+    person.motivationLevel()
