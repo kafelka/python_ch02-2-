@@ -9,12 +9,12 @@ from bs4 import BeautifulSoup
 import requests
 from datetime import datetime
 
-def selectDate():
+def selectDate(location):
     isDate = int(input("Select a date: 0 - today, 1 - tomorrow, 2 - day after tomorrow, n - nth day in advance. "))
     if isDate == 0:
-        return 'https://www.bbc.co.uk/weather/2643743'
+        return f'https://www.bbc.co.uk/weather/{location}'
     else:
-        return f'https://www.bbc.co.uk/weather/2643743/day{isDate}' 
+        return f'https://www.bbc.co.uk/weather/{location}/day{isDate}' 
     
     
 def selectCity():
@@ -31,7 +31,7 @@ def parseHour(html):
     weatherDetailed = html.find("span", {"class": "wr-time-slot-secondary__weather-type-text"})
     weatherType = html.find("div", {"class": "wr-time-slot-primary__weather-type-description"})
     precipitation = html.find("div", {"class": "wr-time-slot-primary__precipitation"}).children
-    wind = html.find("span", {"class": "wr-value--windspeed wr-value--windspeed--kph"})
+    wind_kph = html.find("span", {"class": "wr-value--windspeed wr-value--windspeed--kph"})
     windDirection = html.find("div", {"class": "wr-time-slot-secondary__wind-direction"})
     return {
         "time": hour.text,
@@ -39,14 +39,14 @@ def parseHour(html):
         "temperature": temperature.text,
         "weather type": weatherType.text,
         "precipitation": list(precipitation)[1].text.split("c")[0],
-        "wind": wind.text,
+        "wind": wind_kph.text,
         "wind details": windDirection.text
     }
 
 
 if __name__ == "__main__":
     locationID = selectCity()
-    url = selectDate()
+    url = selectDate(locationID)
     r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
     li = soup.find_all("li", {"class": "wr-time-slot wr-js-time-slot "})
