@@ -10,12 +10,12 @@ from random import randint
 
 
 class MovingShape:
-    def __init__(self, frame, shape, diameter, dx, dy):
+    def __init__(self, frame, shape, diameter):
         self.shape = shape
         self.diameter = diameter
         self.figure = Shape(shape, diameter)
-        self.dx = dx
-        self.dy = dy
+        self.dx = randint(1, 10)
+        self.dy = randint(1, 10)
         self.setXY(frame)
         
     def setXY(self,frame):
@@ -37,7 +37,6 @@ class MovingShape:
 #        setting starting position and speed(velocity)
         self.goto(self.x, self.y)
         
-  
         
 #        move figure to position x, y 
     def goto(self, x, y):
@@ -46,9 +45,9 @@ class MovingShape:
 #        function that moves the figure one step further
     def moveTick(self):
 #        randomly change direction
-        if r() < 0.04:
+        if r() < 0.03:
             self.dx = self.dx * -1
-        if r() < 0.04:
+        if r() < 0.03:
             self.dy = self.dy * -1
 #        move
         self.x = self.x + self.dx
@@ -74,12 +73,12 @@ class MovingShape:
 class Square(MovingShape):
     def __init__(self, frame, diameter):
 #        MovingShape.__init__ (self, frame, "square", diameter, 1 + 3 * r(), 1 + 3 * r())
-        MovingShape.__init__ (self, frame, "square", diameter, randint(2, 5), randint(2, 5))
+        MovingShape.__init__ (self, frame, "square", diameter)
         
 class Diamond(MovingShape):
     def __init__(self, frame, diameter):
 #        MovingShape.__init__ (self, frame, "diamond", diameter, 1 + 3 * r(), 1 + 3 * r())
-        MovingShape.__init__ (self, frame, "diamond", diameter, randint(2, 5), randint(2, 5))
+        MovingShape.__init__ (self, frame, "diamond", diameter)
         
     def setXY(self,frame):
 #        diameter ** 2
@@ -94,4 +93,4 @@ class Diamond(MovingShape):
 class Circle(MovingShape):
     def __init__(self, frame, diameter):
 #        MovingShape.__init__ (self, frame, "circle", diameter, 1 + 3 * r(), 1 + 3 * r())
-        MovingShape.__init__ (self, frame, "circle", diameter, randint(2, 5), randint(2, 5))
+        MovingShape.__init__ (self, frame, "circle", diameter)
