@@ -74,12 +74,12 @@ class MovingShape:
 class Square(MovingShape):
     def __init__(self, frame, diameter):
 #        MovingShape.__init__ (self, frame, "square", diameter, 1 + 3 * r(), 1 + 3 * r())
-        MovingShape.__init__ (self, frame, "square", diameter, randint(1, 4), randint(1, 4))
+        MovingShape.__init__ (self, frame, "square", diameter, randint(2, 5), randint(2, 5))
         
 class Diamond(MovingShape):
     def __init__(self, frame, diameter):
 #        MovingShape.__init__ (self, frame, "diamond", diameter, 1 + 3 * r(), 1 + 3 * r())
-        MovingShape.__init__ (self, frame, "diamond", diameter, randint(1, 4), randint(1, 4))
+        MovingShape.__init__ (self, frame, "diamond", diameter, randint(2, 5), randint(2, 5))
         
     def setXY(self,frame):
 #        diameter ** 2
@@ -94,4 +94,4 @@ class Diamond(MovingShape):
 class Circle(MovingShape):
     def __init__(self, frame, diameter):
 #        MovingShape.__init__ (self, frame, "circle", diameter, 1 + 3 * r(), 1 + 3 * r())
-        MovingShape.__init__ (self, frame, "circle", diameter, randint(1, 4), randint(1, 4))
+        MovingShape.__init__ (self, frame, "circle", diameter, randint(2, 5), randint(2, 5))
