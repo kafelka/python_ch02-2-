@@ -252,3 +252,17 @@ for outer_val in [1, 2, 3]:
 #for i in range(1,7):
 #    for j n range(1,11):
 #        print("{0:})
+
+
+# Ex14: Multiplication table with a for loop
+
+for i in range(1,11):
+   for j in range(1,11):
+       print('{0:>3}'.format(i*j), end='')
+   print('\n')
+
+# VERSION 2
+
+table = int(input("Please enter a times table: "))
+for x in range(0, 5):
+   print(x, "x", table, "=", x*table)
