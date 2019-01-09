@@ -95,13 +95,13 @@ print("\n")
 #            found13 = False
 #    return count
    
-def sum13(nums):     
-    while 13 in nums:
-        if nums.index(13) < len(nums)-1:
-            nums.pop(nums.index(13)+1)
-        nums.pop(nums.index(13))
-    
-    return sum(nums)
+#def sum13(nums):     
+#    while 13 in nums:
+#        if nums.index(13) < len(nums)-1:
+#            nums.pop(nums.index(13)+1)
+#        nums.pop(nums.index(13))
+#    
+#    return sum(nums)
 
 print(sum13([1, 2, 2, 1]))
 print(sum13([1, 1]))
@@ -118,13 +118,18 @@ print("\n")
 #sum67([1, 2, 2, 6, 99, 99, 7]) → 5
 #sum67([1, 1, 6, 7, 2]) → 4
 
-#def sum67(nums):
+def sum67(nums):
 #    while 6 in nums:
 #        index6 = nums.index(6)
+#        print("print index6", index6)
 #        index7 = nums.index(7)
+#        print("print index7", index7)
 #        nums = nums[:index6] + nums[index7+1:]
 #           
 #    return sum(nums)
+
+#b = [1,1,6,7,2]
+#print("print b", b.index(6))
 
 def sum67(nums):
   count = 0
