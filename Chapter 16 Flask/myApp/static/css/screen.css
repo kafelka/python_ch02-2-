@@ -1,0 +1,95 @@
+h1 {
+  font-family: 'Sacramento', cursive;
+  font-size: 8rem;
+  letter-spacing: 3px;
+  text-shadow: 1px 2px 2px #AA5585;
+  padding-top: 1.5rem;
+}
+
+@media only screen and (max-width: 992px) {
+  h1 {
+  font-size: 6rem;
+  }
+}
+
+.jumbotron {
+  margin-bottom: 0;
+  background-color: #7BCCCC;
+}
+
+.main {
+  display: flex;
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card-group {
+ margin: 0 0.5rem 2rem;
+}
+
+.card {
+  margin: 20px;
+}
+
+.card-ada {
+  box-shadow: 1px 1px 5px #AA5585;
+}
+
+.card-kath {
+  box-shadow: 1px 1px 5px #17a2b8;
+}
+
+.card-grace {
+  box-shadow: 1px 1px 5px #dc3545;
+}
+
+.btn-primary {
+  background-color: #AA5585;
+  border-color: #AA5585;
+}
+
+.btn-primary:hover {
+  background-color: #8E3065;
+  border-color: #AA5585;
+}
+
+
+.btn-danger:hover {
+  padding: 8px 14px;
+}
+
+
+footer {
+  font-family: Verdana;
+  color: white;
+  background-color: #220917;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 576px) {
+  footer {
+    padding: 0.5rem;
+  }
+}
+
+footer img {
+  margin-left: 5px;
+}
+
+footer a:link {
+  text-decoration: none;
+}
+
+footer a:visited {
+  color: #AA5585;
+}
+
+footer a:hover {
+  color: red;
+}

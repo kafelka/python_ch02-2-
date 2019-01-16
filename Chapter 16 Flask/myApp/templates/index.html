@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<html lang="en-GB">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Main page</title>
+ <!-- <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet"> -->
+ <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+  <!--<link rel="stylesheet" href="css/index.css" /> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/screen.css') }}">
+</head>
+
+<body>
+  <header class="container-fluid jumbotron">
+    <div class="container-fluid">
+      <h1 class="text-center">Women in tech</h1>
+    </div>
+  </header>
+
+  <main>
+    <div class="card-group">
+      <div class="card card-ada">
+        <img class="card-img-top" src="{{ url_for('static', filename='images/ada_poster.jpg') }}" alt="An image of Ada Lovelace."/>
+        <div class="card-body text-center">
+          <a href="#" class="btn btn-primary">Ada Lovelace</a>
+        </div>
+      </div>
+
+      <div class="card card-kath">
+        <img class="card-img-top" src="{{ url_for('static', filename='images/kath_poster.jpg') }}" alt="An image of Katherine Johnson.">
+        <div class="card-body text-center">
+          <a href="#" class="btn btn-info">Katherine Johnson</a>
+        </div>
+      </div>
+
+      <div class="card card-grace">
+        <img class="card-img-top" src="{{ url_for('static', filename='images/grace_poster.jpg') }}" alt="An image of Grace Hopper.p">
+        <div class="card-body text-center">
+          <a href="grace.html" class="btn btn-danger">Grace Hopper</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="text-center">
+        Image source: <a href="https://www.amightygirl.com">A mighty GIRL</a>
+        <img class="img-fluid" src="{{ url_for('static', filename='images/mightygirl.png') }}" alt="A mighty GIRL page logo.">
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
