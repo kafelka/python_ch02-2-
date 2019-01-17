@@ -9,6 +9,8 @@ import time
 import datetime
 import random
 
+#ex1 create a table
+
 conn = sqlite3.connect("task1b.db")
 c = conn.cursor()
 
@@ -20,6 +22,8 @@ def create_table():
 #    conn.commit()
 #    c.close()
 #    conn.close()
+
+#ex2 add data to your table with variables
 
 def dynamic_data_entry():
     unix = time.time()
@@ -35,6 +39,8 @@ for i in range(10):
     dynamic_data_entry()
     time.sleep(1)
 
+
+#ex3  read and select data from a database
     
 #def read_from_db_all():
 #    c.execute("SELECT * FROM stuffToBuild2 WHERE value =8 ")
