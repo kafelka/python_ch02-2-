@@ -3,7 +3,7 @@
 
 def countWords(filename):
     counts = {}
-    textfile = open(filename, "r")
+    textfile = open(filename, "r") #r stands for read
     for line in textfile:
         words = line.split() #return substrings as a list
         for word in words:
@@ -37,22 +37,31 @@ def printTop20(counts):
         word = words[i]   #words = words[:20]
         print("word:", word.upper(), "has a frequency of:", counts[word])
         
-printTop20(counts)
+#printTop20(counts)
 
 
 #task3 stopwords
+# function that reads in the words and return them as a list of strings
+   
+def readStopWords(stopfile):
+    stops = []
+    textfile = open(stopfile, "r")
+    for line in textfile:
+        word = line.strip()
+        stops.append(word)
+    return stops
+  
+stops = readStopWords("stopwords.txt")
+print(stops)
 
-
-
-
-
-
-#    
-#def readStopWord(stopfile):
-#    stops = []
-#    inf = open(stopfile, "r")
-#    for line in inf:
-#        word = line.strip()
-#        stops.append(word)
-#    return stops
-#  
+#def countWords(filename, stopwords):
+#    counts = {}
+#    textfile = open(filename, "r")
+#    for line in textfile:
+#        words = line.split() #return substrings as a list
+#        for word in words:
+#            if word in counts:
+#                counts[word] += 1
+#            else:
+#                counts[word] = 1
+#    return counts
