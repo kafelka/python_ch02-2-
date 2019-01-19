@@ -1,17 +1,17 @@
 #task 1
 #Counting words - reads through a file and counts the words into a dictionary
 
-#def countWords(filename):
-#    counts = {}
-#    textfile = open(filename, "r") #r stands for read
-#    for line in textfile:
-#        words = line.split() #return substrings as a list
-#        for word in words:
-#            if word in counts:
-#                counts[word] += 1
-#            else:
-#                counts[word] = 1
-#    return counts
+def countWords(filename):
+    counts = {}
+    textfile = open(filename, "r") #r stands for read
+    for line in textfile:
+        words = line.split() #return substrings as a list
+        for word in words:
+            if word in counts:
+                counts[word] += 1
+            else:
+                counts[word] = 1
+    return counts
 
 #print(countWords("mobydick.txt"))
 
@@ -38,33 +38,71 @@
    
 def readStopWords(stopfile):
     stops = []
-    textfile = open(stopfile, "r")
-    for line in textfile:
-        word = line.strip()
-        stops.append(word)
-    return stops
+    with open(stopfile, "r") as textfile:
+        for line in textfile:
+            word = line.strip()
+            stops.append(word)
+        return stops
   
-stops = readStopWords("stopwords.txt")
+#stops = readStopWords("stopwords.txt")
 #print(stops)
 
-def countWords2(filename, stopwords):
-    
+def countWords2(filename, stopwords): 
     counts = {}
-    textfile = open(filename, "r")
-    for line in textfile:
-        wordsInLine = line.split() #return substrings as a list
-        for word in wordsInLine:
-            if word not in stops:
-                if word in counts:
-                    counts[word] += 1
-                else:
-                    counts[word] = 1       
-    print(counts)
-    return counts
+    with open(filename, "r") as textfile:
+        for line in textfile:
+            wordsInLine = line.split() #return substrings as a list
+            for word in wordsInLine:
+                if word not in stopwords:
+                    if word in counts:
+                        counts[word] += 1
+                    else:
+                        counts[word] = 1       
+    #    print(counts)
+        return counts
 
-countWords2("mobydick.txt", stops)
+#countWords2("mobydick.txt", stops)
+
+#task 4  
+stops = readStopWords("stopwords.txt")
+       
+georgeFiles = ["george01.txt", "george02.txt", "george03.txt", "george04.txt"]
+georgeDicts = [countWords(element) for element in georgeFiles]
+
+#georgeDicts2 = [] #same as georgeDicts:
+#for element in georgeFiles:
+#    wordCountDict = countWords(element)
+#    georgeDicts2.append(wordCountDict)
+    
+georgeDicts3 = [countWords2(element, stops) for element in georgeFiles]   
+#w1 = {"karo": 3, "kier": 4, "trefl": 5}
+#w2 = {"karo": 5, "pik": 8, "trefl": 10, "canasta": 300}
+def similarity(words1, words2):
+    overlap = 0
+    for key in words1.keys():
+        if key in words2:
+            overlap += 1
+            
+    return overlap / (len(words1) + len(words2) - overlap)
+
+
+import itertools
+
+print("Scores without stop words")
+for pair in itertools.combinations([0,1,2,3], r=2):
+    p1, p2 = pair
+    print(f"Score for george0{p1+1}, george0{p2+1}: {similarity(georgeDicts3[p1], georgeDicts3[p2])}") 
+  
+print("Scores using all words")    
+for pair in itertools.combinations([0,1,2,3], r=2):
+    p1, p2 = pair
+    print(f"Score for george0{p1+1}, george0{p2+1}: {similarity(georgeDicts[p1], georgeDicts[p2])}") 
 
     
+#print(similarity(georgeDicts3[0], georgeDicts3[3])) 
+
+
+
 
 
 #task4 
