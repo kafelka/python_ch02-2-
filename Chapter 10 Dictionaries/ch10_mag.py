@@ -99,6 +99,7 @@ print(list(abc.values()))
 
 #ex7 & ex8 sorting dictionaries
 abc_keys = list(abc.keys())
+print("***************8", abc_keys)
 abc_keys.sort(key=lambda k:abc[k][2])
 print("second value keys:", abc_keys)
 abc_keys.sort(key=lambda k:abc[k][1])

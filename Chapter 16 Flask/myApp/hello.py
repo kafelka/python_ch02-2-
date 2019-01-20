@@ -10,9 +10,6 @@ app = Flask("MyApp")
 #    return "<p>phone email address</p>"
 
 
-
-
-#nie dziala ponizsze
 @app.route("/greeting/<greeting>")
 def randomGreeting(greeting):
     return render_template("hello.html", greeting = greeting)
