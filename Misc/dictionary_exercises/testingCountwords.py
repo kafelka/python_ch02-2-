@@ -1,9 +1,11 @@
-import from 
+from countwordsFunctions import * 
 
+counts = countWords("mobypara.txt")
 
-inf = open(stopwords.text", "r")
+printTop20(counts)
+stops = readStopWords("stopwords.txt")
 
+counts2 = countWords2("mobypara.txt", stops)
 
-infile = "mobypara.text"
-
-stops - readStopWords("stopwords.text")
+print(similarity(counts, counts))
+print(similarity(counts, counts2))

@@ -22,15 +22,18 @@ def countWords(filename):
 #
 #counts = countWords("mobydick.txt")
 #
-#def printTop20(counts):
-#    words = list(counts.keys())
-#    
-#    words.sort(reverse=True, key=lambda v:counts[v])
-#    print(words[0])
-#    for i in range(20):
-#        word = words[i]   #words = words[:20]
-#        print("word:", word.upper(), "has a frequency of:", counts[word])
+def printTop20(counts):
+    words = list(counts.keys())
+    words.sort(reverse=True, key=lambda v:counts[v])
+    for i in range(20):
+        word = words[i]   #words = words[:20]
+        print("word:", word.upper(), "has a frequency of:", counts[word])
 #printTop20(counts)
+
+#def getTop20(counts):
+#    words = list(counts.keys())
+#    top20 = sorted(words, key=lambda k: counts[k], reverse=True)
+#    return top20[:20]
 
 
 #task3 stopwords
@@ -63,18 +66,19 @@ def countWords2(filename, stopwords):
 
 #countWords2("mobydick.txt", stops)
 
+################################
 #task 4  
-stops = readStopWords("stopwords.txt")
-       
-georgeFiles = ["george01.txt", "george02.txt", "george03.txt", "george04.txt"]
-georgeDicts = [countWords(element) for element in georgeFiles]
-
+#stops = readStopWords("stopwords.txt")
+#       
+#georgeFiles = ["george01.txt", "george02.txt", "george03.txt", "george04.txt"]
+#georgeDicts = [countWords(element) for element in georgeFiles]
 #georgeDicts2 = [] #same as georgeDicts:
 #for element in georgeFiles:
 #    wordCountDict = countWords(element)
 #    georgeDicts2.append(wordCountDict)
-    
-georgeDicts3 = [countWords2(element, stops) for element in georgeFiles]   
+#georgeDicts3 = [countWords2(element, stops) for element in georgeFiles]  
+###################################
+     
 #w1 = {"karo": 3, "kier": 4, "trefl": 5}
 #w2 = {"karo": 5, "pik": 8, "trefl": 10, "canasta": 300}
 def similarity(words1, words2):
@@ -87,21 +91,28 @@ def similarity(words1, words2):
             
     return overlap / (len(words1) + len(words2) - overlap)
 
-
-import itertools
-
-print("Scores without stop words")
-for pair in itertools.combinations([0,1,2,3], r=2):
-    p1, p2 = pair
-    score = similarity(georgeDicts3[p1], georgeDicts3[p2])
-    print(f"Score for george0{p1+1}, george0{p2+1}: {score}") 
-  
-print("Scores using all words")    
-for pair in itertools.combinations([0,1,2,3], r=2):
-    p1, p2 = pair
-    print(f"Score for george0{p1+1}, george0{p2+1}: {similarity(georgeDicts[p1], georgeDicts[p2])}") 
-
+if __name__ == "__main__":
+    import itertools
     
+    stops = readStopWords("stopwords.txt")      
+    georgeFiles = ["george01.txt", "george02.txt", "george03.txt", "george04.txt"]
+    georgeDicts = [countWords(element) for element in georgeFiles]
+    georgeDicts3 = [countWords2(element, stops) for element in georgeFiles]   
+    
+    print("Scores without stop words")
+    for pair in itertools.combinations([0,1,2,3], r=2):
+        p1, p2 = pair
+        score = similarity(georgeDicts3[p1], georgeDicts3[p2])
+        print(f"Score for george0{p1+1}, george0{p2+1}: {score}") 
+      
+    print("Scores using all words")    
+    for pair in itertools.combinations([0,1,2,3], r=2):
+        p1, p2 = pair
+        print(f"Score for george0{p1+1}, george0{p2+1}: {similarity(georgeDicts[p1], georgeDicts[p2])}") 
+
+      
+
+
 #print(similarity(georgeDicts3[0], georgeDicts3[3])) 
 
 #task4 
