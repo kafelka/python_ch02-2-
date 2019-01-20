@@ -21,7 +21,7 @@ for val in values:
 
 for val in values:
     print("--->" + str(val))
-    print("--->" + str(val + 50))
+    print("---->" + str(val + 50))
 
 ##ex3 create list and print
 values = ["this", 55, "that"]
@@ -36,24 +36,22 @@ for char in "I am a cat.".split():  #to divide by words
     print(char)  
     
 for char in "I am a cat.".split("a"):  #to divide by words, omit "a"
-    print(char)    
+    print(f"'{char}'")    
     
 for char in "I-am-a-cat.".split("-"):  #omit "-"
     print(char)    
       
 #ex5  loop through a tuple
-#birds = ("tucan", "paradise bird", "owl")
-#
-#for item in tuple:
-#    print("***", item)
-    
-#'type' object is not iterable so the above example would have an error
+birds = ("tucan", "paradise bird", "owl")
 
+for item in birds:
+    print("***", item)
+    
 #ex6&7 loop through dictionary data type
         
-#salary = {"al":20000, "bo":50000, "ced":1500}
-#salaryKeys = list(salary.keys())
-#salaryValues = list(salary.values())
+salary = {"al":20000, "bo":50000, "ced":1500}
+salaryKeys = list(salary.keys())
+salaryValues = list(salary.values())
 
 metals = {
         "gold": (19320, 40.81, 10),
@@ -70,10 +68,10 @@ print("list keys", metalKeys)
 print("list values", metalValues)
 
 for i in metalKeys:
-    print("keys",i)
+    print("keys:",i)
     
 for n in metalValues:
-    print("values",n)
+    print("values:",n)
     
 for key, value in metals.items():
     print("the KV pair:", key, value)
@@ -84,32 +82,34 @@ print("sort by second value:", x)
 for key, value in x:
     print(key, value)
     
-#metalValues.sort(reverse = True, key=lambda m:metals[m])
-#keyValue = sorted(densities.items(), key=lambda kv:kv[1][1], reverse = True)
-#
-#for metal, metalValue in keyValue:
-#    print(metal, metalValue)
+keyValue = sorted(metals.items(), key=lambda kv:kv[1][1], reverse = True)
+
+for key, value in keyValue:
+    print(key, value)
     
 densities = {"iron":(7.8, 5, 1000), "gold":(19.3, 20, 2), "zinc":(7.13, 10, 50), "lead": (11.4, 8, 40)}
 metals = list(densities.keys())
-metals.sort(reverse = True, key=lambda m:densities[m])
+metals.sort(reverse = True, key=lambda k:densities[k])
 
-keyValues = sorted(densities.items(), key=lambda kv:kv[1][1], reverse=True)
-for metal in metals:
-    if densities[metal][0]>8:
-        print('{0:>8} = {1:5.1f}'.format(metal, densities[metal][0]))
-    
 #ex8?? combine counting loop and conditionals to filter out values
-densities = {"iron":(7.8, 5, 1000), "gold":(19.3, 20, 2), "zinc":(7.13, 10, 50), "lead": (11.4, 8, 40)}
-metals = list(densities.keys())
-metals.sort(reverse = True, key=lambda m:densities[m])
 
 keyValues = sorted(densities.items(), key=lambda kv:kv[1][1], reverse=True)
-
 for metal in metals:
-    if densities[metal][0]>10:
-        print(metal, densities[metal][0])
-    
+#    if densities[metal][0] > 8:
+#        print("{0}, {1}, {2}".format(var1, var2, var3))
+#        print('{0:>8} = {1:5.1f}'.format(metal, densities[metal][0]))
+    print(metal, densities[metal][0])
+     
+#densities = {"iron":(7.8, 5, 1000), "gold":(19.3, 20, 2), "zinc":(7.13, 10, 50), "lead": (11.4, 8, 40)}
+#metals = list(densities.keys())
+#metals.sort(reverse = True, key=lambda m:densities[m])
+#
+#keyValues = sorted(densities.items(), key=lambda kv:kv[1][1], reverse=True)
+#
+#for metal in metals:
+#    if densities[metal][0]>10:
+#        print(metal, densities[metal][0])
+#    
 #ex9 design a sum function 
 values = [3,12,9]
 total = 0
@@ -136,12 +136,12 @@ for value in valuesList:
     
 print("Total:", str(total))
 
-gifts = {
-        "socks": (6, 15, "green"),
-        "tea": (2, 5, "cherry"),
-        "chocolates": (4, 5, "almond"),
-        "books": (5, 10, "fiction")
-        }
+#gifts = {
+#        "socks": (6, 15, "green"),
+#        "tea": (2, 5, "cherry"),
+#        "chocolates": (4, 5, "almond"),
+#        "books": (5, 10, "fiction")
+#        }
 #loopRound = 1  
 #for gift, item in gifts.items():
 #    print("open box", loopRound, "the gift is", gift)
@@ -179,6 +179,7 @@ values = [3, 12, 9, 5, 6]
 for index in range(1, len(values), 2):
     print(values[index], "with index", index)
     values[index] = values[index] ** 2
+print(values)
     
 values = [3,12,9]
 for index in range(len(values)):
@@ -186,13 +187,21 @@ for index in range(len(values)):
     values[index] = values[index] * 2
 print(values)
 
-#ex11 using a loop with the range function
+values2 = []
+for v in values:
+    print(v)
+    values2.append(v*2)
+print(values2)
+
+values3 = [2*v for v in values]
+
+##ex11 using a loop with the range function
 names = ["milly", "bob", "kate", "mary", "alanis", "elly"]
 for i in range(1, len(names), 3):
     print("find them", names[i])
         
 
-#ex12 using breaks in for loops
+##ex12 using breaks in for loops
 nums = [1,5,30,200,101,100,22]
 for n in nums:
     if n > 100:
@@ -221,6 +230,7 @@ for index in range(len(nums)):
         print("need to break:", nums[index], "with index", index)
     else:
         print("Oh, you forgot to break the loop", nums[index], "with index", index)
+    print("**************")
         
 
 colours = ["red", "green", "red", "green", "blue", "green", "green"]
@@ -235,23 +245,25 @@ for item in colours:
         d[item] = d[item] + 1
         print(d)
     
-    
-#ex13 creating nested loops
+print('final', d)
+
+##ex13 creating nested loops
 outer_vals_list = [1, 2, 3]
 inner_vals_list = ["A", "B", "C"]
-dict = {}
+dict2 = {}
 
 for outer_val in [1, 2, 3]:
 #    print(outer_val)
     for inner_val in ["A", "B", "C"]:
 #        print(inner_val)
-        dict[outer_val] = inner_val
-        print(dict)
+        dict2[outer_val] = inner_val
+        print(dict2)
 
 
-#for i in range(1,7):
-#    for j n range(1,11):
-#        print("{0:})
+for i in range(1,7):
+    for j in range(1,11):
+        print(f"{i*j:>3}", end="")
+    print("\n")
 
 
 # Ex14: Multiplication table with a for loop
