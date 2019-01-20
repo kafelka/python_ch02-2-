@@ -78,6 +78,8 @@ georgeDicts3 = [countWords2(element, stops) for element in georgeFiles]
 #w1 = {"karo": 3, "kier": 4, "trefl": 5}
 #w2 = {"karo": 5, "pik": 8, "trefl": 10, "canasta": 300}
 def similarity(words1, words2):
+    if len(words1) + len(words2) == 0:
+        return 0
     overlap = 0
     for key in words1.keys():
         if key in words2:
@@ -91,7 +93,8 @@ import itertools
 print("Scores without stop words")
 for pair in itertools.combinations([0,1,2,3], r=2):
     p1, p2 = pair
-    print(f"Score for george0{p1+1}, george0{p2+1}: {similarity(georgeDicts3[p1], georgeDicts3[p2])}") 
+    score = similarity(georgeDicts3[p1], georgeDicts3[p2])
+    print(f"Score for george0{p1+1}, george0{p2+1}: {score}") 
   
 print("Scores using all words")    
 for pair in itertools.combinations([0,1,2,3], r=2):
@@ -100,10 +103,6 @@ for pair in itertools.combinations([0,1,2,3], r=2):
 
     
 #print(similarity(georgeDicts3[0], georgeDicts3[3])) 
-
-
-
-
 
 #task4 
 #input: file1counts, file2counts
