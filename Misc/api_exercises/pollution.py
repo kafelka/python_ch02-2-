@@ -1,81 +1,91 @@
 import requests
 import json
-
 from time import strftime
 import sqlite3
-import time
-import datetime
 import random
-from datetime import datetime
+from datetime import datetime, timedelta
 
-#Get Carbon Intensity data for past 24h for specified postcode
-#response = requests.get("https://api.carbonintensity.org.uk/regional/intensity/2019-01-21T09:00Z/pt12h/postcode/NW6")
-#Get Carbon Intensity data for current half hour for specified postcode
-response3 = requests.get("https://api.carbonintensity.org.uk/regional/intensity/2019-01-20T10:00Z/2019-01-21T10:00Z/postcode/NW6")
-#response = requests.get("https://api.carbonintensity.org.uk/regional/postcode/NW6")
-data = response3.json()
 
-print(response3.url)
-print(response3.status_code)
-print(response3.headers["content-type"])
-print(response3.text)
-print("************")
+startDate = datetime.strptime("2019-01-01", '%Y-%m-%d').date() #date as date, not string
+endDate = datetime.now().date() #today's date
+observationHours = [6, 12, 18, 22] #hours I'm interested in 
 
-city = data["data"]["shortname"]
-print(city)
-test = data["data"]["data"]
-print(test)
-print("************")
-test2 = test[0]
-print(test2)
-forecast = test2["intensity"]["forecast"]
-print(forecast)
-print("************")
-test2keys = list(test2.keys())
-test2values  = list(test2.values())
+results = []
+def createNewData(data):
+    #transforming raw json into understandable dictionary
+    for row in data["data"]["data"]:
+        newData = {
+            "time": datetime.strptime(row["from"], '%Y-%m-%dT%H:%MZ'),
+            "intensityForecast": row["intensity"]["forecast"],
+            "intensityIndex": row["intensity"]["index"]
+        }
+        #obejrzij sie na dol dziolszko
+        for fuelDictionary in row["generationmix"]:
+            fuel = fuelDictionary["fuel"].title()
+            newData[f"fuel{fuel}"] = fuelDictionary["perc"]
+        
+        if newData["time"].hour in observationHours and newData["time"].minute == 0:
+            results.append(newData)
 
-for i in test2keys:
-    print("keys:", i)
+print("Fetching data from API...")
+counter = 0 #counter for days between start and end dates
+while startDate + timedelta(days = counter) <= endDate: #timedelta = duration in days, counter = number of days
+    currentDate = (startDate + timedelta(days = counter)).strftime("%Y-%m-%d") #converted into string
+    counter += 1 #advance to the next day
+    print("For date:", currentDate)
+    #Get Carbon Intensity data for current half hour for specified postcode
+    response = requests.get(f"https://api.carbonintensity.org.uk/regional/intensity/{currentDate}T00:00Z/{currentDate}T23:30Z/postcode/NW6")
+    data = response.json()
+    createNewData(data)
     
-for i in test2values:
-    print("values:", i)
-
     
-dateTest = test2["from"]
-print(dateTest)
+#print(response.url)
+#print(response.status_code)
+#print(response.headers["content-type"])
+#print(response.text)
 
-data_czas = datetime.strptime(dateTest, '%Y-%m-%dT%H:%MZ')
-print(data_czas)
-sama_data = datetime.strptime(dateTest, '%Y-%m-%dT%H:%MZ').date()
-print(sama_data)
+#city = data["data"]["shortname"]
+#print(city)
 
+print(results[0])
+print("Number of results:", len(results))
 
-for i in data["data"]["data"]:
-   print("date:", i["from"], "\n", "forecast:", i["intensity"]["forecast"], "\n", "index:", i["intensity"]["index"], "\n",
-         i["generationmix"][0]["fuel"], i["generationmix"][0]["perc"], "\n",
-         i["generationmix"][1]["fuel"], i["generationmix"][1]["perc"], "\n",
-         i["generationmix"][2]["fuel"], i["generationmix"][2]["perc"], "\n",
-         i["generationmix"][3]["fuel"], i["generationmix"][3]["perc"], "\n",
-         i["generationmix"][4]["fuel"], i["generationmix"][4]["perc"], "\n",
-         i["generationmix"][5]["fuel"], i["generationmix"][5]["perc"], "\n",
-         i["generationmix"][6]["fuel"], i["generationmix"][6]["perc"], "\n",
-         i["generationmix"][7]["fuel"], i["generationmix"][7]["perc"], "\n",
-         i["generationmix"][8]["fuel"], i["generationmix"][8]["perc"]
-         )
-   
    
 conn = sqlite3.connect("natGrid.db")
 c = conn.cursor()
 
-#def create_table():
-#    c.execute("CREATE TABLE IF NOT EXISTS pollution(datestamp TEXT, forecast REAL, index TEXT, biomass REAL, coal REAL, imports REAL, gas REAL, nuclear REAL, other REAL, hydro REAL, solar REAL, wind REAL)")
-#    conn.commit()
-#     
-##create_table()
-#
-#def carbIntensity_data_entry():
-#    c.execute('''INSERT INTO pollution(datestamp, forecast, index, biomass, coal, imports, gas, nuclear, other, hydro, solar, wind) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
-#                  
-#
-##    conn.commit()
+def create_table():
+    print("Creating table...")
+    c.execute("CREATE TABLE IF NOT EXISTS pollution(datestamp TEXT, forecast REAL, intensityIndex TEXT, biomass REAL, coal REAL, imports REAL, gas REAL, nuclear REAL, other REAL, hydro REAL, solar REAL, wind REAL)")
+    c.execute("DELETE FROM pollution")
+    conn.commit()
+     
+create_table()
+
+def carbIntensity_data_entry():
+    print("Populating DB with data...")
+    for item in results:
+        c.execute('''INSERT INTO pollution(datestamp, forecast, intensityIndex, biomass, coal, imports, gas, nuclear, other, hydro, solar, wind) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+                 (item["time"].strftime("%Y-%m-%d %H:00"), item['intensityForecast'], item['intensityIndex'],
+                 item['fuelBiomass'], item['fuelCoal'], item['fuelImports'], item['fuelGas'],
+                 item['fuelNuclear'], item['fuelOther'], item['fuelHydro'], item['fuelSolar'],
+                 item['fuelWind']))
+    conn.commit()
+        
+carbIntensity_data_entry()
+
    
+
+#closing cursor
+c.close()
+#closing connection to db
+conn.close()
+
+
+
+#
+#a = [{'name': "Wojtek", "age": 8}, {'name': "Magda", "age": 18}]  
+#phoneBook = {}
+#for person in a:
+#    phoneBook[person["name"]] = person["age"]    
+#print(phoneBook)
