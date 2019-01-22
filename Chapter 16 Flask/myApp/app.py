@@ -33,6 +33,14 @@ def confirmation():
 def hello_someone(name):
     return render_template("hello.html", greeting = "hello", name=name.title())
 
+#Create Heroku account, install postgres via pip
+#go to the right directory / folder
+#heroku login
+#heroku create
+#git push heroku master
+#heroku ps:scale web=1
+#heroku open
+#in case of issues: heroku logs --tail
 
 
 #playing with css but not a good idea
