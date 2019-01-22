@@ -6,8 +6,9 @@ import random
 from datetime import datetime, timedelta
 
 
-startDate = datetime.strptime("2019-01-01", '%Y-%m-%d').date() #date as date, not string
-endDate = datetime.now().date() #today's date
+startDate = datetime.strptime("2018-11-01", '%Y-%m-%d').date() #date as date, not string
+#endDate = datetime.now().date() #today's date
+endDate = datetime.strptime("2018-11-30", '%Y-%m-%d').date()
 observationHours = [6, 12, 18, 22] #hours I'm interested in 
 
 results = []
