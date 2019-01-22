@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-app = Flask("MyApp")
+app = Flask(__name__)
 
 #@app.route("/")
 #def hello():
@@ -9,7 +9,7 @@ app = Flask("MyApp")
 #def firstPar():
 #    return "<p>phone email address</p>"
 
-
+#nie dziala ponizsze
 @app.route("/greeting/<greeting>")
 def randomGreeting(greeting):
     return render_template("hello.html", greeting = greeting)
@@ -28,16 +28,15 @@ def confirmation():
     email = form_data["email"]
     result="All OK"
     return render_template("confirmation.html", title="Form confirmation", **locals())
-    
+
 @app.route("/<name>")
 def hello_someone(name):
     return render_template("hello.html", greeting = "hello", name=name.title())
 
-app.run(debug=True)
 
 
 #playing with css but not a good idea
 #@route("path/to/sheet.css")
 
-
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True) 
